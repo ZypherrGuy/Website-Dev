@@ -142,6 +142,7 @@
     opacity: 0.9; }
   .fh5co-top-banner .site-container {
     position: relative;
+    margin-top: 10%;
     z-index: 1; }
   @media (max-width: 1600px) {
     .fh5co-top-banner {
@@ -844,7 +845,7 @@
 
 
 	#main {
-		padding: 4em 0 2em 0;
+		padding: 8em 0 2em 0;
 	}
 
 		@media screen and (max-width: 736px) {
@@ -1045,13 +1046,14 @@
       }
       
       .serviceTextDiv{
-        border: 1px dotted limegreen;
+        background-color: #c18f59c5;
         width: 70%;
       }
 
       .serviceText{
         position:relative; 
-        left:80px;
+        left:62%;
+        margin-top: 10px;
         
       }
       
