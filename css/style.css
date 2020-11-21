@@ -659,27 +659,6 @@
       .fh5co-quotes p {
         width: 90%; } }
 
-.fh5co-social {
-  position: relative;
-  padding: 63px 0;
-  background-image: url("../images/social-bckg.jpg");
-  background-size: cover;
-  background-position: center; }
-  .fh5co-social::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #c18f59;
-    opacity: 0.9; }
-  .fh5co-social .site-container {
-    position: relative;
-    z-index: 1; }
-  @media (max-width: 620px) {
-    .fh5co-social {
-      padding: 40px 0; } }
 
 .social {
   display: flex;
@@ -715,7 +694,10 @@
 
 .site-footer {
   padding-top: 120px;
-  background-color: #343434; }
+  background-image: url("../images/quotes-bckg.jpg"); 
+  background-position: center;
+  background-size: cover; }
+ 
   @media (max-width: 1250px) {
     .site-footer {
       padding-top: 60px; } }
@@ -799,8 +781,9 @@
   .footer-contact-form .submit-button {
     padding: 19px 50px;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 16px;
     color: #fff;
+    font-weight: bold;
     background-color: #c18f59;
     border: none;
     border-radius: 3px;
@@ -845,7 +828,7 @@
 
 
 	#main {
-		padding: 8em 0 2em 0;
+		padding: 8em 0 8em 0;
 	}
 
 		@media screen and (max-width: 736px) {
@@ -1000,6 +983,7 @@
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
         text-align: center;
+        margin-top: 8%;
       }
 
       /*Item hover*/
@@ -1056,6 +1040,127 @@
         margin-top: 10px;
         
       }
-      
+
      
+      .slick-slide {
+          margin: 0px 20px;
+      }
       
+      .slick-slide img {
+          width: 45%;
+      }
+      
+      .slick-slider
+      {
+          position: relative;
+          display: block;
+          box-sizing: border-box;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+                  user-select: none;
+          -webkit-touch-callout: none;
+          -khtml-user-select: none;
+          -ms-touch-action: pan-y;
+              touch-action: pan-y;
+          -webkit-tap-highlight-color: transparent;
+      }
+      
+      .slick-list
+      {
+          position: relative;
+          display: block;
+          overflow: hidden;
+          margin: 0;
+          padding: 0;
+      }
+      .slick-list:focus
+      {
+          outline: none;
+      }
+      .slick-list.dragging
+      {
+          cursor: pointer;
+          cursor: hand;
+      }
+      
+      .slick-slider .slick-track,
+      .slick-slider .slick-list
+      {
+          -webkit-transform: translate3d(0, 0, 0);
+             -moz-transform: translate3d(0, 0, 0);
+              -ms-transform: translate3d(0, 0, 0);
+               -o-transform: translate3d(0, 0, 0);
+                  transform: translate3d(0, 0, 0);
+      }
+      
+      .slick-track
+      {
+          position: relative;
+          top: 0;
+          left: 0;
+          display: block;
+      }
+      .slick-track:before,
+      .slick-track:after
+      {
+          display: table;
+          content: '';
+      }
+      .slick-track:after
+      {
+          clear: both;
+      }
+      .slick-loading .slick-track
+      {
+          visibility: hidden;
+      }
+      
+      .slick-slide
+      {
+          display: none;
+          float: left;
+          height: 100%;
+          min-height: 1px;
+      }
+      [dir='rtl'] .slick-slide
+      {
+          float: right;
+      }
+      .slick-slide img
+      {
+          display: block;
+      }
+      .slick-slide.slick-loading img
+      {
+          display: none;
+      }
+      .slick-slide.dragging img
+      {
+          pointer-events: none;
+      }
+      .slick-initialized .slick-slide
+      {
+          display: block;
+      }
+      .slick-loading .slick-slide
+      {
+          visibility: hidden;
+      }
+      .slick-vertical .slick-slide
+      {
+          display: block;
+          height: auto;
+          border: 1px solid transparent;
+      }
+      .slick-arrow.slick-hidden {
+          display: none;
+      }
+     
+      .container-slider{
+        background-color: #c18f59c5 ;
+      }
+
+      .customer-logos{
+        padding: 1% ;
+      }
