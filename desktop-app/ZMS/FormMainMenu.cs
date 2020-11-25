@@ -21,6 +21,7 @@ namespace ZMS
     public FormMainMenu()
     {
       InitializeComponent();
+      random = new Random();
     }
 
     //Methods
@@ -29,7 +30,7 @@ namespace ZMS
       int index = random.Next(ThemeColor.ColorList.Count);
       while (tempIndex == index)
       {
-        random.Next(ThemeColor.ColorList.Count);
+        index = random.Next(ThemeColor.ColorList.Count);
       }
 
       tempIndex = index;
@@ -54,6 +55,8 @@ namespace ZMS
             System.Drawing.FontStyle.Regular,
             System.Drawing.GraphicsUnit.Point,
             ((byte)(0)));
+          panelTitlebar.BackColor = color;
+          panelLogo.BackColor = ThemeColor.ChangeColorBrightness(color , -0.3);
         }
       }
     }
@@ -78,7 +81,27 @@ namespace ZMS
 
     private void btnDashboard_Click(object sender, EventArgs e)
     {
+      ActivateButton(sender);
+    }
 
+    private void btnOrders_Click(object sender, EventArgs e)
+    {
+      ActivateButton(sender);
+    }
+
+    private void btnInvoices_Click(object sender, EventArgs e)
+    {
+      ActivateButton(sender);
+    }
+
+    private void btnClients_Click(object sender, EventArgs e)
+    {
+      ActivateButton(sender);
+    }
+
+    private void btnSettings_Click(object sender, EventArgs e)
+    {
+      ActivateButton(sender);
     }
   }
 }

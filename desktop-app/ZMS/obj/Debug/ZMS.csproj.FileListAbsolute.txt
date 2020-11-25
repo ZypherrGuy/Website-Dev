@@ -1,0 +1,10 @@
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\bin\Debug\ZMS.exe.config
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\bin\Debug\ZMS.exe
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\bin\Debug\ZMS.pdb
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.csprojAssemblyReference.cache
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.FormMainMenu.resources
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Properties.Resources.resources
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.csproj.GenerateResource.cache
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.csproj.CoreCompileInputs.cache
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.exe
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.pdb
