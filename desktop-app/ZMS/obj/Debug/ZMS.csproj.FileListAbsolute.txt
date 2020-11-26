@@ -8,8 +8,8 @@ C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.csproj.Genera
 C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.csproj.CoreCompileInputs.cache
 C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.exe
 C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.pdb
-C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.FormDashboard.resources
-C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.FormClients.resources
-C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.FormInvoices.resources
-C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.FormOrders.resources
-C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.FormSettings.resources
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Clients.resources
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Dashboard.resources
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Invoices.resources
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Orders.resources
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Settings.resources

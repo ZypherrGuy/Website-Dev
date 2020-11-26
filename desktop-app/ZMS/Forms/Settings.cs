@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace ZMS.Forms
 {
-  public partial class FormOrders : Form
+  public partial class Settings : Form
   {
-    public FormOrders()
+    public Settings()
     {
       InitializeComponent();
     }
 
-    private void FormOrders_Load(object sender, EventArgs e)
+    private void Settings_Load(object sender, EventArgs e)
     {
       LoadTheme();
     }

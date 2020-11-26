@@ -1,6 +1,6 @@
 ﻿namespace ZMS.Forms
 {
-  partial class FormClients
+  partial class Clients
   {
     /// <summary>
     /// Required designer variable.
@@ -35,9 +35,9 @@
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
-      this.Name = "FormClients";
-      this.Text = "FormClients";
-      this.Load += new System.EventHandler(this.FormClients_Load);
+      this.Name = "Clients";
+      this.Text = "Clients";
+      this.Load += new System.EventHandler(this.Clients_Load);
       this.ResumeLayout(false);
 
     }

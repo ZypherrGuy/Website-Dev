@@ -1,6 +1,6 @@
 ﻿namespace ZMS.Forms
 {
-  partial class FormDashboard
+  partial class Dashboard
   {
     /// <summary>
     /// Required designer variable.
@@ -57,8 +57,8 @@
       this.ClientSize = new System.Drawing.Size(800, 450);
       this.Controls.Add(this.label2);
       this.Controls.Add(this.label1);
-      this.Name = "FormDashboard";
-      this.Text = "FormDashboard";
+      this.Name = "Dashboard";
+      this.Text = "Dashboard";
       this.ResumeLayout(false);
       this.PerformLayout();
 

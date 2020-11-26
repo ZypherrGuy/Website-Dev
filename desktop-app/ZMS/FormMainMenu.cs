@@ -7,9 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace ZMS
 {
+  using System.Runtime.InteropServices;
+
   public partial class FormMainMenu : Form
   {
     //Fields
@@ -24,7 +27,16 @@ namespace ZMS
       InitializeComponent();
       random = new Random();
       btnCloseChildForm.Visible = false;
+      this.Text = string.Empty;
+      this.ControlBox = false;
+      this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
     }
+
+    [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+    private extern static void ReleaseCapture(); 
+    
+    [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+    private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
     //Methods
     private Color SelectThemeColor()
@@ -105,27 +117,27 @@ namespace ZMS
 
     private void btnDashboard_Click(object sender, EventArgs e)
     {
-      openChildForm(new Forms.FormDashboard(), sender);
+      openChildForm(new Forms.Dashboard(), sender);
     }
 
     private void btnOrders_Click(object sender, EventArgs e)
     {
-      openChildForm(new Forms.FormOrders(), sender);
+      openChildForm(new Forms.Orders(), sender);
     }
 
     private void btnInvoices_Click(object sender, EventArgs e)
     {
-      openChildForm(new Forms.FormInvoices(), sender);
+      openChildForm(new Forms.Invoices(), sender);
     }
 
     private void btnClients_Click(object sender, EventArgs e)
     {
-      openChildForm(new Forms.FormClients(), sender);
+      openChildForm(new Forms.Clients(), sender);
     }
 
     private void btnSettings_Click(object sender, EventArgs e)
     {
-      openChildForm(new Forms.FormSettings(), sender);
+      openChildForm(new Forms.Settings(), sender);
     }
 
     private void btnCloseChildForm_Click(object sender, EventArgs e)
@@ -140,12 +152,39 @@ namespace ZMS
     private void Reset()
     {
       DisableButtons();
-      lblTitle.Text = "HOME";
+      lblTitle.Text = "Home";
       panelTitlebar.BackColor = Color.FromArgb(0, 120, 120);
       panelLogo.BackColor = Color.FromArgb(39, 39, 58);
       currentButton = null;
       btnCloseChildForm.Visible = false;
     }
-    
+
+    private void panelTitlebar_MouseDown(object sender, MouseEventArgs e)
+    {
+      ReleaseCapture();
+      SendMessage(this.Handle, 0x112, 0xf012, 0);
+    }
+
+    private void btnClose_Click(object sender, EventArgs e)
+    {
+      Application.Exit();
+    }
+
+    private void btnFullScreen_Click(object sender, EventArgs e)
+    {
+      if (WindowState == FormWindowState.Normal)
+      {
+        this.WindowState = FormWindowState.Maximized;
+      }
+      else
+      {
+        this.WindowState = FormWindowState.Normal;
+      }
+    }
+
+    private void btnMinimize_Click(object sender, EventArgs e)
+    {
+      this.WindowState = FormWindowState.Minimized;
+    }
   }
 }

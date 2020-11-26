@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace ZMS.Forms
 {
-  public partial class FormDashboard : Form
+  public partial class Clients : Form
   {
-    public FormDashboard()
+    public Clients()
     {
       InitializeComponent();
+    }
+
+    private void Clients_Load(object sender, EventArgs e)
+    {
       LoadTheme();
     }
 
@@ -30,10 +34,8 @@ namespace ZMS.Forms
           btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
       }
-
-      label1.ForeColor = ThemeColor.SecondaryColor;
-      label2.ForeColor = ThemeColor.PrimaryColor;
+      //label1.ForeColor = ThemeColor.SecondaryColor;
+      //label2.ForeColor = ThemeColor.PrimaryColor;
     }
-
   }
 }

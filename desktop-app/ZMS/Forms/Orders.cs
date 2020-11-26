@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace ZMS.Forms
 {
-  public partial class FormClients : Form
+  public partial class Orders : Form
   {
-    public FormClients()
+    public Orders()
     {
       InitializeComponent();
     }
 
-    private void FormClients_Load(object sender, EventArgs e)
+    private void Orders_Load(object sender, EventArgs e)
     {
       LoadTheme();
     }
@@ -36,6 +36,11 @@ namespace ZMS.Forms
       }
       //label1.ForeColor = ThemeColor.SecondaryColor;
       //label2.ForeColor = ThemeColor.PrimaryColor;
+    }
+
+    private void btnOpenEditor_Click(object sender, EventArgs e)
+    {
+
     }
   }
 }

@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace ZMS.Forms
 {
-  public partial class FormSettings : Form
+  public partial class Invoices : Form
   {
-    public FormSettings()
+    public Invoices()
     {
       InitializeComponent();
     }
 
-    private void FormSettings_Load(object sender, EventArgs e)
+    private void Invoices_Load(object sender, EventArgs e)
     {
       LoadTheme();
     }

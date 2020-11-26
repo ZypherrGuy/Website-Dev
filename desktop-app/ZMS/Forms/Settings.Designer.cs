@@ -1,6 +1,6 @@
 ﻿namespace ZMS.Forms
 {
-  partial class FormInvoices
+  partial class Settings
   {
     /// <summary>
     /// Required designer variable.
@@ -30,14 +30,14 @@
     {
       this.SuspendLayout();
       // 
-      // FormInvoices
+      // FormSettings
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
-      this.Name = "FormInvoices";
-      this.Text = "FormInvoices";
-      this.Load += new System.EventHandler(this.FormInvoices_Load);
+      this.Name = "Settings";
+      this.Text = "Settings";
+      this.Load += new System.EventHandler(this.Settings_Load);
       this.ResumeLayout(false);
 
     }
