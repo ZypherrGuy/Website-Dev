@@ -16,12 +16,14 @@ namespace ZMS
     private Button currentButton;
     private Random random;
     private int tempIndex;
+    private Form activeForm;
 
 
     public FormMainMenu()
     {
       InitializeComponent();
       random = new Random();
+      btnCloseChildForm.Visible = false;
     }
 
     //Methods
@@ -57,6 +59,9 @@ namespace ZMS
             ((byte)(0)));
           panelTitlebar.BackColor = color;
           panelLogo.BackColor = ThemeColor.ChangeColorBrightness(color , -0.3);
+          ThemeColor.PrimaryColor = color;
+          ThemeColor.SecondaryColor = ThemeColor.ChangeColorBrightness(color, -0.3);
+          btnCloseChildForm.Visible = true;
         }
       }
     }
@@ -79,29 +84,68 @@ namespace ZMS
       }
     }
 
+    private void openChildForm(Form childForm, object btnSender)
+    {
+      if (activeForm != null)
+      {
+        activeForm.Close();
+      }
+
+      ActivateButton(btnSender);
+      activeForm = childForm;
+      childForm.TopLevel = false;
+      childForm.FormBorderStyle = FormBorderStyle.None;
+      childForm.Dock = DockStyle.Fill;
+      this.panelDesktopPanel.Controls.Add(childForm);
+      this.panelDesktopPanel.Tag = childForm;
+      childForm.BringToFront();
+      childForm.Show();
+      lblTitle.Text = childForm.Text;
+    }
+
     private void btnDashboard_Click(object sender, EventArgs e)
     {
-      ActivateButton(sender);
+      openChildForm(new Forms.FormDashboard(), sender);
     }
 
     private void btnOrders_Click(object sender, EventArgs e)
     {
-      ActivateButton(sender);
+      openChildForm(new Forms.FormOrders(), sender);
     }
 
     private void btnInvoices_Click(object sender, EventArgs e)
     {
-      ActivateButton(sender);
+      openChildForm(new Forms.FormInvoices(), sender);
     }
 
     private void btnClients_Click(object sender, EventArgs e)
     {
-      ActivateButton(sender);
+      openChildForm(new Forms.FormClients(), sender);
     }
 
     private void btnSettings_Click(object sender, EventArgs e)
     {
-      ActivateButton(sender);
+      openChildForm(new Forms.FormSettings(), sender);
     }
+
+    private void btnCloseChildForm_Click(object sender, EventArgs e)
+    {
+      if (activeForm != null)
+      {
+        activeForm.Close();
+        Reset();
+      }
+    }
+
+    private void Reset()
+    {
+      DisableButtons();
+      lblTitle.Text = "HOME";
+      panelTitlebar.BackColor = Color.FromArgb(0, 120, 120);
+      panelLogo.BackColor = Color.FromArgb(39, 39, 58);
+      currentButton = null;
+      btnCloseChildForm.Visible = false;
+    }
+    
   }
 }
