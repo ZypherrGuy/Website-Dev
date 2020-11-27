@@ -70,6 +70,18 @@
     <Compile Include="Forms\Invoices.Designer.cs">
       <DependentUpon>Invoices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NewOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewOrder.Designer.cs">
+      <DependentUpon>NewOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OrderHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrderHistory.Designer.cs">
+      <DependentUpon>OrderHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Orders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Invoices.resx">
       <DependentUpon>Invoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewOrder.resx">
+      <DependentUpon>NewOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Orders.resx">
       <DependentUpon>Orders.cs</DependentUpon>
@@ -125,7 +140,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\box-32.png" />
     <Content Include="Assets\conference-32.png" />

@@ -75,6 +75,7 @@
       this.btnNewOrder.TabIndex = 3;
       this.btnNewOrder.Text = "New Order";
       this.btnNewOrder.UseVisualStyleBackColor = true;
+      this.btnNewOrder.Click += new System.EventHandler(this.btnNewOrder_Click);
       // 
       // btnOpenEditor
       // 

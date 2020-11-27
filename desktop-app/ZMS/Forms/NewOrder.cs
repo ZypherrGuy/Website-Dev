@@ -10,20 +10,25 @@ using System.Windows.Forms;
 
 namespace ZMS.Forms
 {
-  public partial class Orders : Form
+  public partial class NewOrder : Form
   {
-    public Orders()
+    private Form activeForm;
+
+    public NewOrder()
     {
       InitializeComponent();
     }
 
-    private void Orders_Load(object sender, EventArgs e)
+    private void NewOrder_Load(object sender, EventArgs e)
     {
       LoadTheme();
+      this.Text = string.Empty;
+      this.ControlBox = false;
     }
 
     private void LoadTheme()
     {
+      panelNewOrderTop.BackColor = ThemeColor.PrimaryColor;
       foreach (Control btns in this.Controls)
       {
         if (btns.GetType() == typeof(Button))
@@ -34,19 +39,18 @@ namespace ZMS.Forms
           btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
       }
+
       //label1.ForeColor = ThemeColor.SecondaryColor;
       //label2.ForeColor = ThemeColor.PrimaryColor;
     }
 
-    private void btnOpenEditor_Click(object sender, EventArgs e)
+    private void btnCancelCreateOrder_Click(object sender, EventArgs e)
     {
-
-    }
-
-    private void btnNewOrder_Click(object sender, EventArgs e)
-    {
-      NewOrder newOrderForm = new NewOrder();
-      newOrderForm.Show();
+      Application.OpenForms
+        .OfType<Form>()
+        .Where(form => String.Equals(form.Name, "NewOrder"))
+        .ToList()
+        .ForEach(form => form.Close());
     }
   }
 }

@@ -13,3 +13,4 @@ C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Dashboa
 C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Invoices.resources
 C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Orders.resources
 C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Settings.resources
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.NewOrder.resources

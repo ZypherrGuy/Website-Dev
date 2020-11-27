@@ -317,7 +317,9 @@
       this.Controls.Add(this.panelMenu);
       this.MinimumSize = new System.Drawing.Size(950, 500);
       this.Name = "FormMainMenu";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "FormMainMenu";
+      this.Load += new System.EventHandler(this.FormMainMenu_Load);
       this.panelMenu.ResumeLayout(false);
       this.panelLogo.ResumeLayout(false);
       this.panelLogo.PerformLayout();

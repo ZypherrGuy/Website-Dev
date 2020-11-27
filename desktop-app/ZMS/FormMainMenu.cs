@@ -186,5 +186,10 @@ namespace ZMS
     {
       this.WindowState = FormWindowState.Minimized;
     }
+
+    private void FormMainMenu_Load(object sender, EventArgs e)
+    {
+
+    }
   }
 }
