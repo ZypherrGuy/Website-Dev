@@ -36,13 +36,22 @@
       this.btnOrders = new System.Windows.Forms.Button();
       this.btnDashboard = new System.Windows.Forms.Button();
       this.panelLogo = new System.Windows.Forms.Panel();
-      this.panelTitlebar = new System.Windows.Forms.Panel();
-      this.lblTitle = new System.Windows.Forms.Label();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.panelTitlebar = new System.Windows.Forms.Panel();
+      this.btnCloseChildForm = new System.Windows.Forms.Button();
+      this.lblTitle = new System.Windows.Forms.Label();
+      this.panelDesktopPanel = new System.Windows.Forms.Panel();
+      this.pictureBox2 = new System.Windows.Forms.PictureBox();
+      this.btnClose = new System.Windows.Forms.Button();
+      this.btnFullScreen = new System.Windows.Forms.Button();
+      this.btnMinimize = new System.Windows.Forms.Button();
+      this.lblSoftwareLabel = new System.Windows.Forms.Label();
       this.panelMenu.SuspendLayout();
       this.panelLogo.SuspendLayout();
-      this.panelTitlebar.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+      this.panelTitlebar.SuspendLayout();
+      this.panelDesktopPanel.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
       this.SuspendLayout();
       // 
       // panelMenu
@@ -57,7 +66,7 @@
       this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
       this.panelMenu.Location = new System.Drawing.Point(0, 0);
       this.panelMenu.Name = "panelMenu";
-      this.panelMenu.Size = new System.Drawing.Size(220, 542);
+      this.panelMenu.Size = new System.Drawing.Size(220, 581);
       this.panelMenu.TabIndex = 0;
       // 
       // btnSettings
@@ -171,15 +180,43 @@
       this.panelLogo.Size = new System.Drawing.Size(220, 80);
       this.panelLogo.TabIndex = 0;
       // 
+      // pictureBox1
+      // 
+      this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+      this.pictureBox1.Location = new System.Drawing.Point(3, 4);
+      this.pictureBox1.Name = "pictureBox1";
+      this.pictureBox1.Size = new System.Drawing.Size(210, 70);
+      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+      this.pictureBox1.TabIndex = 0;
+      this.pictureBox1.TabStop = false;
+      // 
       // panelTitlebar
       // 
       this.panelTitlebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+      this.panelTitlebar.Controls.Add(this.btnMinimize);
+      this.panelTitlebar.Controls.Add(this.btnFullScreen);
+      this.panelTitlebar.Controls.Add(this.btnClose);
+      this.panelTitlebar.Controls.Add(this.btnCloseChildForm);
       this.panelTitlebar.Controls.Add(this.lblTitle);
       this.panelTitlebar.Dock = System.Windows.Forms.DockStyle.Top;
       this.panelTitlebar.Location = new System.Drawing.Point(220, 0);
       this.panelTitlebar.Name = "panelTitlebar";
-      this.panelTitlebar.Size = new System.Drawing.Size(698, 80);
+      this.panelTitlebar.Size = new System.Drawing.Size(864, 80);
       this.panelTitlebar.TabIndex = 1;
+      this.panelTitlebar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitlebar_MouseDown);
+      // 
+      // btnCloseChildForm
+      // 
+      this.btnCloseChildForm.Dock = System.Windows.Forms.DockStyle.Left;
+      this.btnCloseChildForm.FlatAppearance.BorderSize = 0;
+      this.btnCloseChildForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.btnCloseChildForm.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseChildForm.Image")));
+      this.btnCloseChildForm.Location = new System.Drawing.Point(0, 0);
+      this.btnCloseChildForm.Name = "btnCloseChildForm";
+      this.btnCloseChildForm.Size = new System.Drawing.Size(75, 80);
+      this.btnCloseChildForm.TabIndex = 1;
+      this.btnCloseChildForm.UseVisualStyleBackColor = true;
+      this.btnCloseChildForm.Click += new System.EventHandler(this.btnCloseChildForm_Click);
       // 
       // lblTitle
       // 
@@ -187,37 +224,111 @@
       this.lblTitle.AutoSize = true;
       this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblTitle.ForeColor = System.Drawing.Color.White;
-      this.lblTitle.Location = new System.Drawing.Point(310, 26);
+      this.lblTitle.Location = new System.Drawing.Point(393, 26);
       this.lblTitle.Name = "lblTitle";
       this.lblTitle.Size = new System.Drawing.Size(78, 26);
       this.lblTitle.TabIndex = 0;
       this.lblTitle.Text = "HOME";
       // 
-      // pictureBox1
+      // panelDesktopPanel
       // 
-      this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-      this.pictureBox1.Location = new System.Drawing.Point(3, 8);
-      this.pictureBox1.Name = "pictureBox1";
-      this.pictureBox1.Size = new System.Drawing.Size(210, 70);
-      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-      this.pictureBox1.TabIndex = 0;
-      this.pictureBox1.TabStop = false;
+      this.panelDesktopPanel.Controls.Add(this.lblSoftwareLabel);
+      this.panelDesktopPanel.Controls.Add(this.pictureBox2);
+      this.panelDesktopPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.panelDesktopPanel.Location = new System.Drawing.Point(220, 80);
+      this.panelDesktopPanel.Name = "panelDesktopPanel";
+      this.panelDesktopPanel.Size = new System.Drawing.Size(864, 501);
+      this.panelDesktopPanel.TabIndex = 2;
+      // 
+      // pictureBox2
+      // 
+      this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+      this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+      this.pictureBox2.Location = new System.Drawing.Point(209, 125);
+      this.pictureBox2.Name = "pictureBox2";
+      this.pictureBox2.Size = new System.Drawing.Size(450, 250);
+      this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+      this.pictureBox2.TabIndex = 0;
+      this.pictureBox2.TabStop = false;
+      // 
+      // btnClose
+      // 
+      this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnClose.FlatAppearance.BorderSize = 0;
+      this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.btnClose.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnClose.ForeColor = System.Drawing.Color.White;
+      this.btnClose.Location = new System.Drawing.Point(831, 0);
+      this.btnClose.Name = "btnClose";
+      this.btnClose.Size = new System.Drawing.Size(30, 30);
+      this.btnClose.TabIndex = 2;
+      this.btnClose.Text = "O";
+      this.btnClose.UseVisualStyleBackColor = true;
+      this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+      // 
+      // btnFullScreen
+      // 
+      this.btnFullScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnFullScreen.FlatAppearance.BorderSize = 0;
+      this.btnFullScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.btnFullScreen.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnFullScreen.ForeColor = System.Drawing.Color.White;
+      this.btnFullScreen.Location = new System.Drawing.Point(795, 0);
+      this.btnFullScreen.Name = "btnFullScreen";
+      this.btnFullScreen.Size = new System.Drawing.Size(30, 30);
+      this.btnFullScreen.TabIndex = 3;
+      this.btnFullScreen.Text = "O";
+      this.btnFullScreen.UseVisualStyleBackColor = true;
+      this.btnFullScreen.Click += new System.EventHandler(this.btnFullScreen_Click);
+      // 
+      // btnMinimize
+      // 
+      this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnMinimize.FlatAppearance.BorderSize = 0;
+      this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.btnMinimize.Font = new System.Drawing.Font("HoloLens MDL2 Assets", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnMinimize.ForeColor = System.Drawing.Color.White;
+      this.btnMinimize.Location = new System.Drawing.Point(759, 0);
+      this.btnMinimize.Name = "btnMinimize";
+      this.btnMinimize.Size = new System.Drawing.Size(30, 30);
+      this.btnMinimize.TabIndex = 4;
+      this.btnMinimize.Text = "O";
+      this.btnMinimize.UseVisualStyleBackColor = true;
+      this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+      // 
+      // lblSoftwareLabel
+      // 
+      this.lblSoftwareLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.lblSoftwareLabel.AutoSize = true;
+      this.lblSoftwareLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblSoftwareLabel.Location = new System.Drawing.Point(664, 476);
+      this.lblSoftwareLabel.Name = "lblSoftwareLabel";
+      this.lblSoftwareLabel.Size = new System.Drawing.Size(188, 16);
+      this.lblSoftwareLabel.TabIndex = 1;
+      this.lblSoftwareLabel.Text = "2020 © Zype Management System";
       // 
       // FormMainMenu
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(918, 542);
+      this.ClientSize = new System.Drawing.Size(1084, 581);
+      this.Controls.Add(this.panelDesktopPanel);
       this.Controls.Add(this.panelTitlebar);
       this.Controls.Add(this.panelMenu);
+      this.MinimumSize = new System.Drawing.Size(950, 500);
       this.Name = "FormMainMenu";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "FormMainMenu";
+      this.Load += new System.EventHandler(this.FormMainMenu_Load);
       this.panelMenu.ResumeLayout(false);
       this.panelLogo.ResumeLayout(false);
       this.panelLogo.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.panelTitlebar.ResumeLayout(false);
       this.panelTitlebar.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+      this.panelDesktopPanel.ResumeLayout(false);
+      this.panelDesktopPanel.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
       this.ResumeLayout(false);
 
     }
@@ -234,6 +345,13 @@
     private System.Windows.Forms.Panel panelTitlebar;
     private System.Windows.Forms.Label lblTitle;
     private System.Windows.Forms.PictureBox pictureBox1;
+    private System.Windows.Forms.Panel panelDesktopPanel;
+    private System.Windows.Forms.Button btnCloseChildForm;
+    private System.Windows.Forms.PictureBox pictureBox2;
+    private System.Windows.Forms.Button btnClose;
+    private System.Windows.Forms.Button btnMinimize;
+    private System.Windows.Forms.Button btnFullScreen;
+    private System.Windows.Forms.Label lblSoftwareLabel;
   }
 }
 

@@ -10,6 +10,9 @@ namespace ZMS
 
   public static class ThemeColor
   {
+    public static Color PrimaryColor { get; set; }
+    public static Color SecondaryColor { get; set; }
+    
     public static List<string> ColorList = new List<string>()
     {
       "#3F51B5", "#009688", "#FF5722", "#607D8B", "#FF9800",
