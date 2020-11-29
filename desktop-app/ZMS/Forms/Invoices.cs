@@ -37,5 +37,11 @@ namespace ZMS.Forms
       //label1.ForeColor = ThemeColor.SecondaryColor;
       //label2.ForeColor = ThemeColor.PrimaryColor;
     }
-  }
+
+        private void btnCreateInvoice_Click(object sender, EventArgs e)
+        {
+            NewInvoice newInvoiceForm = new NewInvoice();
+            newInvoiceForm.Show();
+        }
+    }
 }

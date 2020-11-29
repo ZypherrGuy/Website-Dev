@@ -79,22 +79,25 @@
       this.btnSubmitCreateOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
       this.btnSubmitCreateOrder.FlatAppearance.BorderSize = 0;
       this.btnSubmitCreateOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.btnSubmitCreateOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.btnSubmitCreateOrder.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-      this.btnSubmitCreateOrder.Location = new System.Drawing.Point(357, 487);
+      this.btnSubmitCreateOrder.Location = new System.Drawing.Point(333, 487);
       this.btnSubmitCreateOrder.Name = "btnSubmitCreateOrder";
-      this.btnSubmitCreateOrder.Size = new System.Drawing.Size(98, 39);
+      this.btnSubmitCreateOrder.Size = new System.Drawing.Size(122, 39);
       this.btnSubmitCreateOrder.TabIndex = 1;
       this.btnSubmitCreateOrder.Text = "Submit";
       this.btnSubmitCreateOrder.UseVisualStyleBackColor = true;
+      this.btnSubmitCreateOrder.Click += new System.EventHandler(this.btnSubmitCreateOrder_Click);
       // 
       // btnCancelCreateOrder
       // 
       this.btnCancelCreateOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
       this.btnCancelCreateOrder.FlatAppearance.BorderSize = 0;
       this.btnCancelCreateOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.btnCancelCreateOrder.Location = new System.Drawing.Point(253, 487);
+      this.btnCancelCreateOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+      this.btnCancelCreateOrder.Location = new System.Drawing.Point(205, 487);
       this.btnCancelCreateOrder.Name = "btnCancelCreateOrder";
-      this.btnCancelCreateOrder.Size = new System.Drawing.Size(98, 39);
+      this.btnCancelCreateOrder.Size = new System.Drawing.Size(122, 39);
       this.btnCancelCreateOrder.TabIndex = 2;
       this.btnCancelCreateOrder.Text = "Cancel";
       this.btnCancelCreateOrder.UseVisualStyleBackColor = true;

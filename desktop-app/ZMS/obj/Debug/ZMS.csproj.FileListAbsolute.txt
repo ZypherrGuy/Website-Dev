@@ -14,3 +14,20 @@ C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Invoice
 C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Orders.resources
 C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Settings.resources
 C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.NewOrder.resources
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\ZMS.exe.config
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\ZMS.exe
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\ZMS.pdb
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.csprojAssemblyReference.cache
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.FormMainMenu.resources
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Clients.resources
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Dashboard.resources
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Invoices.resources
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.NewOrder.resources
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Orders.resources
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Settings.resources
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Properties.Resources.resources
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.csproj.GenerateResource.cache
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.csproj.CoreCompileInputs.cache
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.exe
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.pdb
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.NewInvoice.resources

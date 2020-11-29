@@ -12,8 +12,6 @@ namespace ZMS.Forms
 {
   public partial class NewOrder : Form
   {
-    private Form activeForm;
-
     public NewOrder()
     {
       InitializeComponent();
@@ -39,7 +37,6 @@ namespace ZMS.Forms
           btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
       }
-
       //label1.ForeColor = ThemeColor.SecondaryColor;
       //label2.ForeColor = ThemeColor.PrimaryColor;
     }
@@ -51,6 +48,11 @@ namespace ZMS.Forms
         .Where(form => String.Equals(form.Name, "NewOrder"))
         .ToList()
         .ForEach(form => form.Close());
+    }
+
+    private void btnSubmitCreateOrder_Click(object sender, EventArgs e)
+    {
+      //inputOrderTitle.Text;
     }
   }
 }
