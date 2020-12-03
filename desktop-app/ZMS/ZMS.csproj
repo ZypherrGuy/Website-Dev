@@ -70,6 +70,12 @@
     <Compile Include="Forms\Invoices.Designer.cs">
       <DependentUpon>Invoices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NewClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewClient.Designer.cs">
+      <DependentUpon>NewClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\NewInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
