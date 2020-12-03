@@ -70,6 +70,18 @@
     <Compile Include="Forms\Invoices.Designer.cs">
       <DependentUpon>Invoices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NewClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewClient.Designer.cs">
+      <DependentUpon>NewClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewInvoice.Designer.cs">
+      <DependentUpon>NewInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\NewOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,8 +121,17 @@
     <EmbeddedResource Include="Forms\Invoices.resx">
       <DependentUpon>Invoices.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewClient.resx">
+      <DependentUpon>NewClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewInvoice.resx">
+      <DependentUpon>NewInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewOrder.resx">
       <DependentUpon>NewOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrderHistory.resx">
+      <DependentUpon>OrderHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Orders.resx">
       <DependentUpon>Orders.cs</DependentUpon>

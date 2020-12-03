@@ -10,23 +10,22 @@ using System.Windows.Forms;
 
 namespace ZMS.Forms
 {
-  public partial class NewOrder : Form
+  public partial class NewClient : Form
   {
-    public NewOrder()
+    public NewClient()
     {
       InitializeComponent();
     }
 
-    private void NewOrder_Load(object sender, EventArgs e)
+    private void NewClient_Load(object sender, EventArgs e)
     {
       LoadTheme();
       this.Text = string.Empty;
       this.ControlBox = false;
     }
-
     private void LoadTheme()
     {
-      panelNewOrderTop.BackColor = ThemeColor.PrimaryColor;
+      panelNewClientTop.BackColor = ThemeColor.PrimaryColor;
       foreach (Control btns in this.Controls)
       {
         if (btns.GetType() == typeof(Button))
@@ -37,22 +36,21 @@ namespace ZMS.Forms
           btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
       }
-      //label1.ForeColor = ThemeColor.SecondaryColor;
       //label2.ForeColor = ThemeColor.PrimaryColor;
     }
 
-    private void btnCancelCreateOrder_Click(object sender, EventArgs e)
+    private void btnSubmitNewClient_Click(object sender, EventArgs e)
+    {
+     
+    }
+
+    private void btnCancelNewClient_Click(object sender, EventArgs e)
     {
       Application.OpenForms
         .OfType<Form>()
-        .Where(form => String.Equals(form.Name, "NewOrder"))
+        .Where(form => String.Equals(form.Name, "NewClient"))
         .ToList()
         .ForEach(form => form.Close());
-    }
-
-    private void btnSubmitCreateOrder_Click(object sender, EventArgs e)
-    {
-      //inputOrderTitle.Text;
     }
   }
 }

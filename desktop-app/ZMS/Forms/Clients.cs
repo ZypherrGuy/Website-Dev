@@ -20,6 +20,7 @@ namespace ZMS.Forms
     private void Clients_Load(object sender, EventArgs e)
     {
       LoadTheme();
+      btnEditClient.Visible = false;
     }
 
     private void LoadTheme()
@@ -36,6 +37,17 @@ namespace ZMS.Forms
       }
       //label1.ForeColor = ThemeColor.SecondaryColor;
       //label2.ForeColor = ThemeColor.PrimaryColor;
+    }
+
+    private void btnNewClient_Click(object sender, EventArgs e)
+    {
+      NewClient newClientForm = new NewClient();
+      newClientForm.Show();
+    }
+
+    private void comboBoxClientSort_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      
     }
   }
 }
