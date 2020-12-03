@@ -84,7 +84,7 @@
       this.btnCancelNewClient.FlatAppearance.BorderSize = 0;
       this.btnCancelNewClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.btnCancelNewClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-      this.btnCancelNewClient.Location = new System.Drawing.Point(528, 638);
+      this.btnCancelNewClient.Location = new System.Drawing.Point(528, 634);
       this.btnCancelNewClient.Name = "btnCancelNewClient";
       this.btnCancelNewClient.Size = new System.Drawing.Size(122, 39);
       this.btnCancelNewClient.TabIndex = 4;
@@ -99,7 +99,7 @@
       this.btnSubmitNewClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.btnSubmitNewClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.btnSubmitNewClient.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-      this.btnSubmitNewClient.Location = new System.Drawing.Point(656, 638);
+      this.btnSubmitNewClient.Location = new System.Drawing.Point(655, 634);
       this.btnSubmitNewClient.Name = "btnSubmitNewClient";
       this.btnSubmitNewClient.Size = new System.Drawing.Size(122, 39);
       this.btnSubmitNewClient.TabIndex = 3;
@@ -442,15 +442,16 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(790, 692);
+      this.ClientSize = new System.Drawing.Size(790, 685);
       this.Controls.Add(this.groupBoxNewClientInvoiceRecipient);
       this.Controls.Add(this.groupBoxNewClientCompany);
       this.Controls.Add(this.btnCancelNewClient);
       this.Controls.Add(this.btnSubmitNewClient);
       this.Controls.Add(this.panelNewClientTop);
-      this.MaximumSize = new System.Drawing.Size(806, 731);
-      this.MinimumSize = new System.Drawing.Size(806, 731);
+      this.MaximumSize = new System.Drawing.Size(806, 724);
+      this.MinimumSize = new System.Drawing.Size(806, 724);
       this.Name = "NewClient";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "NewClient";
       this.Load += new System.EventHandler(this.NewClient_Load);
       this.panelNewClientTop.ResumeLayout(false);
