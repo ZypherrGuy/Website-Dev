@@ -121,6 +121,9 @@
     <EmbeddedResource Include="Forms\Invoices.resx">
       <DependentUpon>Invoices.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewClient.resx">
+      <DependentUpon>NewClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewInvoice.resx">
       <DependentUpon>NewInvoice.cs</DependentUpon>
     </EmbeddedResource>
