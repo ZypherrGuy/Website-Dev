@@ -60,12 +60,13 @@
       this.btnOrderHistory.FlatAppearance.BorderSize = 0;
       this.btnOrderHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.btnOrderHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-      this.btnOrderHistory.Location = new System.Drawing.Point(272, 383);
+      this.btnOrderHistory.Location = new System.Drawing.Point(144, 383);
       this.btnOrderHistory.Name = "btnOrderHistory";
       this.btnOrderHistory.Size = new System.Drawing.Size(122, 39);
       this.btnOrderHistory.TabIndex = 2;
       this.btnOrderHistory.Text = "Order History";
       this.btnOrderHistory.UseVisualStyleBackColor = true;
+      this.btnOrderHistory.Click += new System.EventHandler(this.btnOrderHistory_Click);
       // 
       // btnNewOrder
       // 
@@ -133,7 +134,7 @@
       this.btnEditOrder.FlatAppearance.BorderSize = 0;
       this.btnEditOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.btnEditOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-      this.btnEditOrder.Location = new System.Drawing.Point(144, 383);
+      this.btnEditOrder.Location = new System.Drawing.Point(272, 383);
       this.btnEditOrder.Name = "btnEditOrder";
       this.btnEditOrder.Size = new System.Drawing.Size(122, 39);
       this.btnEditOrder.TabIndex = 7;

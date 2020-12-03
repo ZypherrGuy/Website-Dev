@@ -50,6 +50,7 @@
       this.comboBoxClientSort.Name = "comboBoxClientSort";
       this.comboBoxClientSort.Size = new System.Drawing.Size(183, 24);
       this.comboBoxClientSort.TabIndex = 0;
+      this.comboBoxClientSort.SelectedIndexChanged += new System.EventHandler(this.comboBoxClientSort_SelectedIndexChanged);
       // 
       // dataGridClients
       // 

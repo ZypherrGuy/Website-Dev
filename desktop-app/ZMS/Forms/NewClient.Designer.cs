@@ -90,6 +90,7 @@
       this.btnCancelNewClient.TabIndex = 4;
       this.btnCancelNewClient.Text = "Cancel";
       this.btnCancelNewClient.UseVisualStyleBackColor = true;
+      this.btnCancelNewClient.Click += new System.EventHandler(this.btnCancelNewClient_Click);
       // 
       // btnSubmitNewClient
       // 
@@ -393,6 +394,7 @@
       // 
       // comboBoxInvoiceRecipientTitle
       // 
+      this.comboBoxInvoiceRecipientTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
       this.comboBoxInvoiceRecipientTitle.FormattingEnabled = true;
       this.comboBoxInvoiceRecipientTitle.Items.AddRange(new object[] {
             "Mr. ",

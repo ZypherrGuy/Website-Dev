@@ -33,3 +33,4 @@ C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\D
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.NewInvoice.resources
 C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.NewClient.resources
 C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.NewInvoice.resources
+C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.OrderHistory.resources

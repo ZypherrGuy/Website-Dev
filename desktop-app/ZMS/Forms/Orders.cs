@@ -20,6 +20,7 @@ namespace ZMS.Forms
     private void Orders_Load(object sender, EventArgs e)
     {
       LoadTheme();
+      btnEditOrder.Visible = false;
     }
 
     private void LoadTheme()
@@ -47,6 +48,12 @@ namespace ZMS.Forms
     {
       NewOrder newOrderForm = new NewOrder();
       newOrderForm.Show();
+    }
+
+    private void btnOrderHistory_Click(object sender, EventArgs e)
+    {
+      OrderHistory orderHistory = new OrderHistory();
+      orderHistory.Show();
     }
   }
 }

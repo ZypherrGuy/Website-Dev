@@ -20,6 +20,7 @@ namespace ZMS.Forms
     private void Clients_Load(object sender, EventArgs e)
     {
       LoadTheme();
+      btnEditClient.Visible = false;
     }
 
     private void LoadTheme()
@@ -42,6 +43,11 @@ namespace ZMS.Forms
     {
       NewClient newClientForm = new NewClient();
       newClientForm.Show();
+    }
+
+    private void comboBoxClientSort_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      
     }
   }
 }
