@@ -28,17 +28,19 @@
     /// </summary>
     private void InitializeComponent()
     {
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
       this.btnCompleteOrder = new System.Windows.Forms.Button();
       this.btnOrderHistory = new System.Windows.Forms.Button();
       this.btnNewOrder = new System.Windows.Forms.Button();
       this.btnOpenEditor = new System.Windows.Forms.Button();
       this.panelDataContainer = new System.Windows.Forms.Panel();
       this.dataGridView1 = new System.Windows.Forms.DataGridView();
-      this.dataGridView2 = new System.Windows.Forms.DataGridView();
+      this.dataGridViewOrderList = new System.Windows.Forms.DataGridView();
       this.btnEditOrder = new System.Windows.Forms.Button();
       this.panelDataContainer.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderList)).BeginInit();
       this.SuspendLayout();
       // 
       // btnCompleteOrder
@@ -115,18 +117,38 @@
       this.dataGridView1.Size = new System.Drawing.Size(772, 355);
       this.dataGridView1.TabIndex = 0;
       // 
-      // dataGridView2
+      // dataGridViewOrderList
       // 
-      this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+      this.dataGridViewOrderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-      this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-      this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-      this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dataGridView2.Location = new System.Drawing.Point(12, 12);
-      this.dataGridView2.Name = "dataGridView2";
-      this.dataGridView2.Size = new System.Drawing.Size(776, 353);
-      this.dataGridView2.TabIndex = 6;
+      this.dataGridViewOrderList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+      this.dataGridViewOrderList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+      this.dataGridViewOrderList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+      dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.dataGridViewOrderList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+      this.dataGridViewOrderList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dataGridViewOrderList.Cursor = System.Windows.Forms.Cursors.PanNW;
+      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+      dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+      dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+      dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+      this.dataGridViewOrderList.DefaultCellStyle = dataGridViewCellStyle2;
+      this.dataGridViewOrderList.Location = new System.Drawing.Point(12, 12);
+      this.dataGridViewOrderList.Name = "dataGridViewOrderList";
+      this.dataGridViewOrderList.RowTemplate.ReadOnly = true;
+      this.dataGridViewOrderList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+      this.dataGridViewOrderList.Size = new System.Drawing.Size(776, 353);
+      this.dataGridViewOrderList.TabIndex = 6;
       // 
       // btnEditOrder
       // 
@@ -147,7 +169,7 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 436);
       this.Controls.Add(this.btnEditOrder);
-      this.Controls.Add(this.dataGridView2);
+      this.Controls.Add(this.dataGridViewOrderList);
       this.Controls.Add(this.panelDataContainer);
       this.Controls.Add(this.btnCompleteOrder);
       this.Controls.Add(this.btnOpenEditor);
@@ -158,7 +180,7 @@
       this.Load += new System.EventHandler(this.Orders_Load);
       this.panelDataContainer.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderList)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -171,7 +193,7 @@
     private System.Windows.Forms.Button btnOpenEditor;
     private System.Windows.Forms.Panel panelDataContainer;
     private System.Windows.Forms.DataGridView dataGridView1;
-    private System.Windows.Forms.DataGridView dataGridView2;
+    public System.Windows.Forms.DataGridView dataGridViewOrderList;
     private System.Windows.Forms.Button btnEditOrder;
   }
 }
