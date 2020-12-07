@@ -38,6 +38,7 @@
       this.dataGridView1 = new System.Windows.Forms.DataGridView();
       this.dataGridViewOrderList = new System.Windows.Forms.DataGridView();
       this.btnEditOrder = new System.Windows.Forms.Button();
+      this.btnRefreshOrderTable = new System.Windows.Forms.Button();
       this.panelDataContainer.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderList)).BeginInit();
@@ -127,14 +128,14 @@
       this.dataGridViewOrderList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
       dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
       dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-      dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+      dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
       dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
       dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
       dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
       dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
       this.dataGridViewOrderList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
       this.dataGridViewOrderList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dataGridViewOrderList.Cursor = System.Windows.Forms.Cursors.PanNW;
+      this.dataGridViewOrderList.Cursor = System.Windows.Forms.Cursors.Arrow;
       dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
       dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
       dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -156,18 +157,33 @@
       this.btnEditOrder.FlatAppearance.BorderSize = 0;
       this.btnEditOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.btnEditOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-      this.btnEditOrder.Location = new System.Drawing.Point(272, 383);
+      this.btnEditOrder.Location = new System.Drawing.Point(410, 383);
       this.btnEditOrder.Name = "btnEditOrder";
       this.btnEditOrder.Size = new System.Drawing.Size(122, 39);
       this.btnEditOrder.TabIndex = 7;
       this.btnEditOrder.Text = "Edit Order";
       this.btnEditOrder.UseVisualStyleBackColor = true;
       // 
+      // btnRefreshOrderTable
+      // 
+      this.btnRefreshOrderTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+      this.btnRefreshOrderTable.FlatAppearance.BorderSize = 0;
+      this.btnRefreshOrderTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.btnRefreshOrderTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+      this.btnRefreshOrderTable.Location = new System.Drawing.Point(272, 383);
+      this.btnRefreshOrderTable.Name = "btnRefreshOrderTable";
+      this.btnRefreshOrderTable.Size = new System.Drawing.Size(122, 39);
+      this.btnRefreshOrderTable.TabIndex = 8;
+      this.btnRefreshOrderTable.Text = "Refresh";
+      this.btnRefreshOrderTable.UseVisualStyleBackColor = true;
+      this.btnRefreshOrderTable.Click += new System.EventHandler(this.btnRefreshOrderTable_Click);
+      // 
       // Orders
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 436);
+      this.Controls.Add(this.btnRefreshOrderTable);
       this.Controls.Add(this.btnEditOrder);
       this.Controls.Add(this.dataGridViewOrderList);
       this.Controls.Add(this.panelDataContainer);
@@ -195,5 +211,6 @@
     private System.Windows.Forms.DataGridView dataGridView1;
     public System.Windows.Forms.DataGridView dataGridViewOrderList;
     private System.Windows.Forms.Button btnEditOrder;
+    private System.Windows.Forms.Button btnRefreshOrderTable;
   }
 }

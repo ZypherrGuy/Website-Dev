@@ -71,5 +71,18 @@ namespace ZMS.Forms
       OrderHistory orderHistory = new OrderHistory();
       orderHistory.Show();
     }
+
+    private void btnRefreshOrderTable_Click(object sender, EventArgs e)
+    {
+      try
+      {
+
+        connect.GetOrderList(dataGridViewOrderList);
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show(ex.Message);
+      }
+    }
   }
 }

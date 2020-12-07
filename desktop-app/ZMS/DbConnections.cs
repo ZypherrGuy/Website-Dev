@@ -38,16 +38,9 @@ namespace ZMS
 
     public void GetOrderList(DataGridView orderGrid)
     {
-      /*
-           MySqlConnection conn = new MySqlConnection();
-           OpenSuccessfulDBConnection(conn);
-           //WHERE is_inprogress = 1
-           string db_GetOrders = "SELECT order_id, title, type, ClientID, deadline_date, editor_url, status  FROM tb_orders";
-           AddDataToGrid(orderGrid, db_GetOrders, conn);*/
-
       MySqlConnection mysqlConnection = new MySqlConnection(GetDBConnectionString());
       DataTable dt = new DataTable();
-      MySqlDataAdapter da = new MySqlDataAdapter("SELECT order_id, title, type, ClientID, deadline_date, editor_url, status  FROM tb_orders", mysqlConnection);
+      MySqlDataAdapter da = new MySqlDataAdapter("SELECT order_id AS 'Order ID', title AS 'Title', type AS 'Category', client_name AS 'Client', deadline_date AS 'Deadline', editor_url AS 'URL', status AS 'Status' , order_cost AS 'Value ($)'  FROM tb_orders WHERE is_inprogress = 1", mysqlConnection);
 
       if (mysqlConnection.State == ConnectionState.Closed)
         mysqlConnection.Open();

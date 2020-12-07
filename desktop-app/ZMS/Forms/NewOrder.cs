@@ -15,7 +15,7 @@ namespace ZMS.Forms
   {
     readonly DbConnections connect = new DbConnections();
     readonly Orders orders = new Orders();
-    FormOperations action = new FormOperations();
+    readonly FormOperations action = new FormOperations();
     FormMainMenu mainMenu = new FormMainMenu();
 
     public NewOrder()
@@ -59,7 +59,6 @@ namespace ZMS.Forms
       MySqlConnection conn = new MySqlConnection();
       conn.Close();
       var x = inputOrderTitle.Text;
-      Random rnd = new Random();
 
       try
       {
@@ -67,26 +66,28 @@ namespace ZMS.Forms
         MySqlConnection mysqlConnection = new MySqlConnection();
         connect.OpenSuccessfulDBConnection(mysqlConnection);
 
-        String query = "INSERT INTO tb_orders VALUES (@order_id, @title, @description, @scheduled_date, @deadline_date, @word_count, @editor_url, @status, @is_complete, @is_invoiced, @is_closed, @type, @ClientID, @InvoiceID, is_inprogress, @client_name, @order_cost)";
+        String query = "INSERT INTO tb_orders VALUES (@order_id , @title, @description, @scheduled_date, @deadline_date, @word_count, @editor_url, @status, @is_complete, @is_invoiced, @is_closed, @type, @ClientID, @InvoiceID, @is_inprogress, @client_name, @order_cost, @order_dateCreated)";
 
         MySqlCommand cmd = new MySqlCommand(query, mysqlConnection);
-        cmd.Parameters.AddWithValue("@order_id", "BLG081233");
-        cmd.Parameters.AddWithValue("@title", "abc");
-        cmd.Parameters.AddWithValue("@description", "abc");
+        cmd.Parameters.AddWithValue("@order_id", action.GetOrderID(comboBoxOrderType));
+        cmd.Parameters.AddWithValue("@title", inputOrderTitle.Text);
+        cmd.Parameters.AddWithValue("@description", "Basic Order");
         cmd.Parameters.AddWithValue("@scheduled_date", dateTimeSchedDate.Value.Date);
         cmd.Parameters.AddWithValue("@deadline_date", dateTimeSubDate.Value.Date);
-        cmd.Parameters.AddWithValue("@word_count", 123);
-        cmd.Parameters.AddWithValue("@editor_url", "abc");
-        cmd.Parameters.AddWithValue("@status", "abc");
+        cmd.Parameters.AddWithValue("@word_count", inputWordCount.Text);
+        cmd.Parameters.AddWithValue("@editor_url", inputEditorURL.Text);
+        cmd.Parameters.AddWithValue("@status", "In-progress");
         cmd.Parameters.AddWithValue("@is_complete", 0);
         cmd.Parameters.AddWithValue("@is_invoiced", 0);
         cmd.Parameters.AddWithValue("@is_closed", 0);
         cmd.Parameters.AddWithValue("@type", comboBoxOrderType.Text);
-        cmd.Parameters.AddWithValue("@ClientID", 123);
+        cmd.Parameters.AddWithValue("@ClientID", 123);//Change to ComboBox
         cmd.Parameters.AddWithValue("@InvoiceID", 432);
         cmd.Parameters.AddWithValue("@is_inprogress", 1);
-        cmd.Parameters.AddWithValue("@client_name", "abc");
-        cmd.Parameters.AddWithValue("@order_cost", 30.00);
+        cmd.Parameters.AddWithValue("@client_name", inputClient.Text); //Linked to Client ID
+        cmd.Parameters.AddWithValue("@order_cost", inputOrderCost.Text);
+        cmd.Parameters.AddWithValue("@order_dateCreated", DateTime.Now);
+       // cmd.Parameters.AddWithValue("@Assignee", DateTime.Now);  //TODO 
 
        int result = cmd.ExecuteNonQuery();
 
@@ -97,15 +98,11 @@ namespace ZMS.Forms
        .ToList()
        .ForEach(form => form.Close());
 
-        orders.dataGridViewOrderList.Rows.Clear();
-
-        //MessageBox.Show("Order created successfully.");
-        orders.dataGridViewOrderList.DataSource = null;
-        orders.dataGridViewOrderList.Refresh();
-        /*mainMenu.openChildForm(new Forms.Dashboard(), sender);
-        mainMenu.openChildForm(new Forms.Orders(), sender);*/
-
-        //connect.GetOrderList(orders.dataGridViewOrderList);
+        
+      
+        
+        MessageBox.Show("Order created successfully.");
+        mysqlConnection.Close();
 
 
       }
