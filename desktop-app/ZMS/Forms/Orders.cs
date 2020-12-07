@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ZMS.Forms
 {
   public partial class Orders : Form
   {
+    readonly DbConnections connect = new DbConnections();
+
     public Orders()
     {
       InitializeComponent();
@@ -21,6 +24,16 @@ namespace ZMS.Forms
     {
       LoadTheme();
       btnEditOrder.Visible = false;
+
+      try
+      {
+
+        connect.GetOrderList(dataGridViewOrderList);
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show(ex.Message);
+      }
     }
 
     private void LoadTheme()
@@ -35,6 +48,9 @@ namespace ZMS.Forms
           btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
       }
+      dataGridViewOrderList.DefaultCellStyle.SelectionBackColor = ThemeColor.PrimaryColor;
+      dataGridViewOrderList.DefaultCellStyle.SelectionForeColor = Color.White;
+
       //label1.ForeColor = ThemeColor.SecondaryColor;
       //label2.ForeColor = ThemeColor.PrimaryColor;
     }

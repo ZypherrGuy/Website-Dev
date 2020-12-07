@@ -96,7 +96,7 @@ namespace ZMS
             }
         }
 
-        private void openChildForm(Form childForm, object btnSender)
+        public void openChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
             {
