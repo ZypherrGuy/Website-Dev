@@ -6767,7 +6767,7 @@ blockquote {
 .hero {
 	height: 830px;
 	background-color: #282b2b;
-	background-image: url(Assets/Back-home-small.png);
+	background-image: url(../Assets/Back-home-small.png);
 	background-position: 100% 0;
 	background-size: auto 1230px
 }
