@@ -2729,6 +2729,12 @@ blockquote {
 	line-height: 17px
 }
 
+.section-contact{
+padding-top: 25px;
+padding-bottom: 25px;
+padding-left: 20%;
+}
+
 .button.top-margin {
 	margin-top: 20px
 }
@@ -2759,7 +2765,7 @@ blockquote {
 }
 
 .nav-link.w--current {
-	color: #333333
+	color: #ffcccc
 }
 
 .nav-link.color {
@@ -2962,8 +2968,8 @@ blockquote {
 .section.quote-section.with-bg-image {
 	padding-top: 190px;
 	padding-bottom: 190px;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(40, 43, 43, .8)), to(rgba(40, 43, 43, .8))), url(https://uploads-ssl.webflow.com/5a9ed82adc4e540001aaba98/5cc80a50d82d0e49303a6af0_Speaking-2.jpg);
-	background-image: linear-gradient(180deg, rgba(40, 43, 43, .8), rgba(40, 43, 43, .8)), url(https://uploads-ssl.webflow.com/5a9ed82adc4e540001aaba98/5cc80a50d82d0e49303a6af0_Speaking-2.jpg);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(40, 43, 43, .8)), to(rgba(40, 43, 43, .8))), url(../Assets/Back-pink.png);
+	background-image: linear-gradient(180deg, rgba(40, 43, 43, .8), rgba(40, 43, 43, .8)), url(../Assets/Back-pink.png);
 	background-position: 0 0, 50% 20%;
 	background-size: auto, cover;
 	background-attachment: scroll, scroll;
@@ -5957,7 +5963,7 @@ blockquote {
 	z-index: 10;
 	width: 490px;
 	height: 645px;
-	background-image: url(https://uploads-ssl.webflow.com/5a9ed82adc4e540001aaba98/5aa10b91ae3ca60001a9ce41_Michal-Top-Full.jpg);
+	background-image: url(../Assets/Untitled\ design\ \(20\).png);
 	background-position: 0 100%;
 	background-size: 583px;
 	box-shadow: 14px 14px 50px -10px rgba(0, 0, 0, .6)
