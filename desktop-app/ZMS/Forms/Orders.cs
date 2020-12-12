@@ -14,6 +14,7 @@ namespace ZMS.Forms
   public partial class Orders : Form
   {
     readonly DbConnections connect = new DbConnections();
+    FormOperations action = new FormOperations();
 
     public Orders()
     {
@@ -50,9 +51,6 @@ namespace ZMS.Forms
       }
       dataGridViewOrderList.DefaultCellStyle.SelectionBackColor = ThemeColor.PrimaryColor;
       dataGridViewOrderList.DefaultCellStyle.SelectionForeColor = Color.White;
-
-      //label1.ForeColor = ThemeColor.SecondaryColor;
-      //label2.ForeColor = ThemeColor.PrimaryColor;
     }
 
     private void btnOpenEditor_Click(object sender, EventArgs e)
@@ -76,13 +74,17 @@ namespace ZMS.Forms
     {
       try
       {
-
         connect.GetOrderList(dataGridViewOrderList);
       }
       catch (Exception ex)
       {
         MessageBox.Show(ex.Message);
       }
+    }
+
+    private void btnCompleteOrder_Click(object sender, EventArgs e)
+    {
+      action.CompleteOrder(dataGridViewOrderList);
     }
   }
 }

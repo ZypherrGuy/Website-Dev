@@ -15,7 +15,7 @@ namespace ZMS
 
     public string GetDBConnectionString()
     {
-        string connectionString = "SERVER=197.242.144.16;port=3306;DATABASE=royalxyb_ZypeManagementSystem;username=royalxyb_admin;password=doctorslater94;Convert Zero Datetime=True";
+        string connectionString = "SERVER=197.242.144.16;port=3306;DATABASE=royalxyb_ZypeManagementSystem;username=royalxyb_user;password=doctorslater94;Convert Zero Datetime=True";
         return connectionString;  
     }
 
@@ -40,7 +40,7 @@ namespace ZMS
     {
       MySqlConnection mysqlConnection = new MySqlConnection(GetDBConnectionString());
       DataTable dt = new DataTable();
-      MySqlDataAdapter da = new MySqlDataAdapter("SELECT order_id AS 'Order ID', title AS 'Title', type AS 'Category', client_name AS 'Client', deadline_date AS 'Deadline', editor_url AS 'URL', status AS 'Status' , order_cost AS 'Value ($)'  FROM tb_orders WHERE is_inprogress = 1", mysqlConnection);
+      MySqlDataAdapter da = new MySqlDataAdapter("SELECT order_id AS 'Order ID', title AS 'Title', type_category AS 'Category', client_name AS 'Client', deadline_date AS 'Deadline', status AS 'Status' , currency_id AS 'Currency', order_cost AS 'Value' , order_assignee AS 'Assignee'  FROM tb_orders WHERE is_inprogress = 1 AND is_complete = 0", mysqlConnection);
 
       if (mysqlConnection.State == ConnectionState.Closed)
         mysqlConnection.Open();
@@ -49,9 +49,7 @@ namespace ZMS
       da.Fill(dt);
 
       orderGrid.DataSource = dt;
-
     }
-    
   }
 }
 

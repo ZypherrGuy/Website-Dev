@@ -56,6 +56,7 @@
       this.btnCompleteOrder.TabIndex = 1;
       this.btnCompleteOrder.Text = "Complete Order";
       this.btnCompleteOrder.UseVisualStyleBackColor = true;
+      this.btnCompleteOrder.Click += new System.EventHandler(this.btnCompleteOrder_Click);
       // 
       // btnOrderHistory
       // 
