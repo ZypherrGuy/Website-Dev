@@ -55,7 +55,7 @@ namespace ZMS.Forms
 
     private void btnOpenEditor_Click(object sender, EventArgs e)
     {
-
+      action.GetOrderEditorURL(dataGridViewOrderList);
     }
 
     private void btnNewOrder_Click(object sender, EventArgs e)

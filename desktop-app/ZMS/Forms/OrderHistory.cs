@@ -7,11 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.VisualBasic;
+using MySql.Data.MySqlClient;
 
 namespace ZMS.Forms
 {
   public partial class OrderHistory : Form
   {
+    readonly DbConnections connect = new DbConnections();
+    FormOperations action = new FormOperations();
+
     public OrderHistory()
     {
       InitializeComponent();
@@ -23,6 +31,17 @@ namespace ZMS.Forms
       SetDateSortFieldVisibility();
       this.Text = string.Empty;
       this.ControlBox = false;
+
+      try
+      {
+
+        connect.GetOrderHistoryList(dataGridHistoryOrderList);
+      }
+      catch (Exception ex)
+      {
+        MessageBox.Show(ex.Message);
+      }
+
     }
 
     private void SetDateSortFieldVisibility()
@@ -74,5 +93,12 @@ namespace ZMS.Forms
         SetDateSortFieldVisibility();
       }
     }
+
+    private void btnSaveReport_Click(object sender, EventArgs e)
+    {
+      action.CreateOrderHistoyExel(dataGridHistoryOrderList);
+    }
+
+    
   }
 }

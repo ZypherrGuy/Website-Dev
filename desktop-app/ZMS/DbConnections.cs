@@ -50,6 +50,21 @@ namespace ZMS
 
       orderGrid.DataSource = dt;
     }
+
+    public void GetOrderHistoryList(DataGridView orderGrid)
+    {
+      MySqlConnection mysqlConnection = new MySqlConnection(GetDBConnectionString());
+      DataTable dt = new DataTable();
+      MySqlDataAdapter da = new MySqlDataAdapter("SELECT order_id AS 'Order ID', title AS 'Title', type_category AS 'Category', client_name AS 'Client',  status AS 'Status' , date_orderCompleted AS 'Date Completed', currency_id AS 'Currency', order_cost AS 'Value' , order_assignee AS 'Assignee'  FROM tb_orders WHERE is_complete = 1", mysqlConnection);
+
+      if (mysqlConnection.State == ConnectionState.Closed)
+        mysqlConnection.Open();
+
+      da.SelectCommand.ExecuteNonQuery();
+      da.Fill(dt);
+
+      orderGrid.DataSource = dt;
+    }
   }
 }
 

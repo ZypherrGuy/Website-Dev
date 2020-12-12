@@ -52,3 +52,6 @@ C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\D
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\MySql.Data.xml
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.exe.config
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.csproj.CopyComplete
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\Aspose.Cells.dll
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\ExcelEngine.dll
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\Aspose.Cells.xml

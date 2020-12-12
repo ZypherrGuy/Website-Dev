@@ -28,16 +28,18 @@
     /// </summary>
     private void InitializeComponent()
     {
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
       this.dateTimeOrderHistoryFrom = new System.Windows.Forms.DateTimePicker();
       this.dateTimePickerdateTimeOrderHistoryTo = new System.Windows.Forms.DateTimePicker();
       this.lblOrderHistoryFrom = new System.Windows.Forms.Label();
       this.lblOrderHistoryTo = new System.Windows.Forms.Label();
       this.comboBoxSortBy = new System.Windows.Forms.ComboBox();
       this.lblSortBy = new System.Windows.Forms.Label();
-      this.dataGridView1 = new System.Windows.Forms.DataGridView();
       this.btnSaveReport = new System.Windows.Forms.Button();
       this.btnHistoryCancel = new System.Windows.Forms.Button();
-      ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+      this.dataGridHistoryOrderList = new System.Windows.Forms.DataGridView();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridHistoryOrderList)).BeginInit();
       this.SuspendLayout();
       // 
       // dateTimeOrderHistoryFrom
@@ -83,7 +85,7 @@
       this.comboBoxSortBy.Items.AddRange(new object[] {
             "Date",
             "Title"});
-      this.comboBoxSortBy.Location = new System.Drawing.Point(704, 20);
+      this.comboBoxSortBy.Location = new System.Drawing.Point(1191, 22);
       this.comboBoxSortBy.Name = "comboBoxSortBy";
       this.comboBoxSortBy.Size = new System.Drawing.Size(121, 24);
       this.comboBoxSortBy.TabIndex = 4;
@@ -93,19 +95,11 @@
       // 
       this.lblSortBy.AutoSize = true;
       this.lblSortBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-      this.lblSortBy.Location = new System.Drawing.Point(638, 24);
+      this.lblSortBy.Location = new System.Drawing.Point(1125, 26);
       this.lblSortBy.Name = "lblSortBy";
       this.lblSortBy.Size = new System.Drawing.Size(58, 17);
       this.lblSortBy.TabIndex = 5;
       this.lblSortBy.Text = "Sort By:";
-      // 
-      // dataGridView1
-      // 
-      this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dataGridView1.Location = new System.Drawing.Point(13, 56);
-      this.dataGridView1.Name = "dataGridView1";
-      this.dataGridView1.Size = new System.Drawing.Size(812, 577);
-      this.dataGridView1.TabIndex = 6;
       // 
       // btnSaveReport
       // 
@@ -113,12 +107,13 @@
       this.btnSaveReport.FlatAppearance.BorderSize = 0;
       this.btnSaveReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.btnSaveReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-      this.btnSaveReport.Location = new System.Drawing.Point(703, 640);
+      this.btnSaveReport.Location = new System.Drawing.Point(1189, 639);
       this.btnSaveReport.Name = "btnSaveReport";
       this.btnSaveReport.Size = new System.Drawing.Size(122, 39);
       this.btnSaveReport.TabIndex = 8;
-      this.btnSaveReport.Text = "Save Report";
+      this.btnSaveReport.Text = "Export to Excel";
       this.btnSaveReport.UseVisualStyleBackColor = true;
+      this.btnSaveReport.Click += new System.EventHandler(this.btnSaveReport_Click);
       // 
       // btnHistoryCancel
       // 
@@ -126,7 +121,7 @@
       this.btnHistoryCancel.FlatAppearance.BorderSize = 0;
       this.btnHistoryCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.btnHistoryCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-      this.btnHistoryCancel.Location = new System.Drawing.Point(575, 640);
+      this.btnHistoryCancel.Location = new System.Drawing.Point(1061, 639);
       this.btnHistoryCancel.Name = "btnHistoryCancel";
       this.btnHistoryCancel.Size = new System.Drawing.Size(122, 39);
       this.btnHistoryCancel.TabIndex = 7;
@@ -134,14 +129,47 @@
       this.btnHistoryCancel.UseVisualStyleBackColor = true;
       this.btnHistoryCancel.Click += new System.EventHandler(this.btnHistoryCancel_Click);
       // 
+      // dataGridHistoryOrderList
+      // 
+      this.dataGridHistoryOrderList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.dataGridHistoryOrderList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+      this.dataGridHistoryOrderList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+      this.dataGridHistoryOrderList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+      dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+      dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.dataGridHistoryOrderList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+      this.dataGridHistoryOrderList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dataGridHistoryOrderList.Cursor = System.Windows.Forms.Cursors.Arrow;
+      dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+      dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+      dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+      dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+      this.dataGridHistoryOrderList.DefaultCellStyle = dataGridViewCellStyle10;
+      this.dataGridHistoryOrderList.Location = new System.Drawing.Point(15, 61);
+      this.dataGridHistoryOrderList.Name = "dataGridHistoryOrderList";
+      this.dataGridHistoryOrderList.RowTemplate.ReadOnly = true;
+      this.dataGridHistoryOrderList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+      this.dataGridHistoryOrderList.Size = new System.Drawing.Size(1296, 572);
+      this.dataGridHistoryOrderList.TabIndex = 9;
+      // 
       // OrderHistory
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(837, 687);
+      this.ClientSize = new System.Drawing.Size(1323, 687);
+      this.Controls.Add(this.dataGridHistoryOrderList);
       this.Controls.Add(this.btnSaveReport);
       this.Controls.Add(this.btnHistoryCancel);
-      this.Controls.Add(this.dataGridView1);
       this.Controls.Add(this.lblSortBy);
       this.Controls.Add(this.comboBoxSortBy);
       this.Controls.Add(this.lblOrderHistoryTo);
@@ -149,9 +177,10 @@
       this.Controls.Add(this.dateTimePickerdateTimeOrderHistoryTo);
       this.Controls.Add(this.dateTimeOrderHistoryFrom);
       this.Name = "OrderHistory";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "OrderHistory";
       this.Load += new System.EventHandler(this.OrderHistory_Load);
-      ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridHistoryOrderList)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -165,8 +194,8 @@
     private System.Windows.Forms.Label lblOrderHistoryTo;
     private System.Windows.Forms.ComboBox comboBoxSortBy;
     private System.Windows.Forms.Label lblSortBy;
-    private System.Windows.Forms.DataGridView dataGridView1;
     private System.Windows.Forms.Button btnSaveReport;
     private System.Windows.Forms.Button btnHistoryCancel;
+    public System.Windows.Forms.DataGridView dataGridHistoryOrderList;
   }
 }
