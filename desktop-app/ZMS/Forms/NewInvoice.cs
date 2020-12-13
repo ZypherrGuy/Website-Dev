@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,9 @@ namespace ZMS.Forms
 {
     public partial class NewInvoice : Form
     {
+        DbConnections connect = new DbConnections();
+        FormOperations action = new FormOperations();
+
         public NewInvoice()
         {
             InitializeComponent();
@@ -22,6 +26,9 @@ namespace ZMS.Forms
             LoadTheme();
             this.Text = string.Empty;
             this.ControlBox = false;
+
+            connect.FillComboBox(comboBoxNewInvoiceCurrency);
+
         }
 
         private void LoadTheme()
@@ -54,5 +61,31 @@ namespace ZMS.Forms
     {
 
     }
+
+    private void comboBoxNewInvoiceCurrency_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      //lblCurrencySymbol.Text
+      using (MySqlConnection sqlConnection = new MySqlConnection(connect.GetDBConnectionString()))
+      {
+        MySqlCommand sqlCmd = new MySqlCommand("SELECT currency_symbol FROM tb_currency WHERE currency_code = '" + comboBoxNewInvoiceCurrency.SelectedItem + "'", sqlConnection);
+        sqlConnection.Open();
+        MySqlDataReader sqlReader = sqlCmd.ExecuteReader();
+
+        string x = lblCurrencyTotal.Text;
+        decimal y = Convert.ToInt32(x);
+
+        while (sqlReader.Read())
+        {
+          lblCurrencySymbol.Text = sqlReader["currency_symbol"].ToString();
+          lblRandConversion.Text = action.GetLiveConversionToRand(Convert.ToInt32(lblCurrencyTotal.Text), comboBoxNewInvoiceCurrency.SelectedItem.ToString(), "ZAR");
+
+        }
+
+
+
+        sqlReader.Close();
+      }
+
+    } 
   }
 }

@@ -28,12 +28,14 @@
     /// </summary>
     private void InitializeComponent()
     {
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
       this.comboBoxClientSort = new System.Windows.Forms.ComboBox();
-      this.dataGridClients = new System.Windows.Forms.DataGridView();
       this.btnNewClient = new System.Windows.Forms.Button();
       this.btnEditClient = new System.Windows.Forms.Button();
       this.btnArchiveClient = new System.Windows.Forms.Button();
       this.lblClientSort = new System.Windows.Forms.Label();
+      this.dataGridClients = new System.Windows.Forms.DataGridView();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridClients)).BeginInit();
       this.SuspendLayout();
       // 
@@ -51,17 +53,6 @@
       this.comboBoxClientSort.Size = new System.Drawing.Size(183, 24);
       this.comboBoxClientSort.TabIndex = 0;
       this.comboBoxClientSort.SelectedIndexChanged += new System.EventHandler(this.comboBoxClientSort_SelectedIndexChanged);
-      // 
-      // dataGridClients
-      // 
-      this.dataGridClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.dataGridClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dataGridClients.Location = new System.Drawing.Point(12, 42);
-      this.dataGridClients.Name = "dataGridClients";
-      this.dataGridClients.Size = new System.Drawing.Size(701, 419);
-      this.dataGridClients.TabIndex = 1;
       // 
       // btnNewClient
       // 
@@ -114,16 +105,49 @@
       this.lblClientSort.TabIndex = 6;
       this.lblClientSort.Text = "Sort By:";
       // 
+      // dataGridClients
+      // 
+      this.dataGridClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.dataGridClients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+      this.dataGridClients.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+      this.dataGridClients.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+      dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.dataGridClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+      this.dataGridClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dataGridClients.Cursor = System.Windows.Forms.Cursors.Arrow;
+      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+      dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+      dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+      dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+      this.dataGridClients.DefaultCellStyle = dataGridViewCellStyle2;
+      this.dataGridClients.Location = new System.Drawing.Point(12, 44);
+      this.dataGridClients.Name = "dataGridClients";
+      this.dataGridClients.RowTemplate.ReadOnly = true;
+      this.dataGridClients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+      this.dataGridClients.Size = new System.Drawing.Size(701, 420);
+      this.dataGridClients.TabIndex = 10;
+      // 
       // Clients
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(725, 521);
+      this.Controls.Add(this.dataGridClients);
       this.Controls.Add(this.lblClientSort);
       this.Controls.Add(this.btnArchiveClient);
       this.Controls.Add(this.btnEditClient);
       this.Controls.Add(this.btnNewClient);
-      this.Controls.Add(this.dataGridClients);
       this.Controls.Add(this.comboBoxClientSort);
       this.Name = "Clients";
       this.Text = "Clients";
@@ -137,10 +161,10 @@
     #endregion
 
     private System.Windows.Forms.ComboBox comboBoxClientSort;
-    private System.Windows.Forms.DataGridView dataGridClients;
     private System.Windows.Forms.Button btnNewClient;
     private System.Windows.Forms.Button btnEditClient;
     private System.Windows.Forms.Button btnArchiveClient;
     private System.Windows.Forms.Label lblClientSort;
+    public System.Windows.Forms.DataGridView dataGridClients;
   }
 }

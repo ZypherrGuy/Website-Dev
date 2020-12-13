@@ -31,6 +31,7 @@ namespace ZMS.Forms
         {
       this.comboBoxNewInvoiceClientSelect = new System.Windows.Forms.ComboBox();
       this.panelNewInvoiceTop = new System.Windows.Forms.Panel();
+      this.lblNewInvoiceTitle = new System.Windows.Forms.Label();
       this.btnCancelNewInvoice = new System.Windows.Forms.Button();
       this.btnSubmitNewInvoice = new System.Windows.Forms.Button();
       this.lblNewInvoiceClient = new System.Windows.Forms.Label();
@@ -44,9 +45,11 @@ namespace ZMS.Forms
       this.lblInvoiceTotal = new System.Windows.Forms.Label();
       this.lblRandSymbol = new System.Windows.Forms.Label();
       this.lblInvoiceTotalRand = new System.Windows.Forms.Label();
-      this.lblNewInvoiceTitle = new System.Windows.Forms.Label();
       this.lblNewInvoiceOrderCount = new System.Windows.Forms.Label();
       this.lblOrderCountNumber = new System.Windows.Forms.Label();
+      this.lblCurrencySymbol = new System.Windows.Forms.Label();
+      this.lblRandConversion = new System.Windows.Forms.Label();
+      this.lblCurrencyTotal = new System.Windows.Forms.Label();
       this.panelNewInvoiceTop.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridClientCompletedOrders)).BeginInit();
       this.SuspendLayout();
@@ -74,6 +77,20 @@ namespace ZMS.Forms
       this.panelNewInvoiceTop.Name = "panelNewInvoiceTop";
       this.panelNewInvoiceTop.Size = new System.Drawing.Size(692, 78);
       this.panelNewInvoiceTop.TabIndex = 6;
+      // 
+      // lblNewInvoiceTitle
+      // 
+      this.lblNewInvoiceTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.lblNewInvoiceTitle.AutoSize = true;
+      this.lblNewInvoiceTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblNewInvoiceTitle.ForeColor = System.Drawing.Color.White;
+      this.lblNewInvoiceTitle.Location = new System.Drawing.Point(288, 26);
+      this.lblNewInvoiceTitle.Name = "lblNewInvoiceTitle";
+      this.lblNewInvoiceTitle.Size = new System.Drawing.Size(131, 26);
+      this.lblNewInvoiceTitle.TabIndex = 2;
+      this.lblNewInvoiceTitle.Text = "New Invoice";
       // 
       // btnCancelNewInvoice
       // 
@@ -140,9 +157,6 @@ namespace ZMS.Forms
       this.comboBoxNewInvoiceBankingDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
       this.comboBoxNewInvoiceBankingDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
       this.comboBoxNewInvoiceBankingDetails.FormattingEnabled = true;
-      this.comboBoxNewInvoiceBankingDetails.Items.AddRange(new object[] {
-            "Fern Writes (Pty) Ltd",
-            "Ms. Fern Lahoud"});
       this.comboBoxNewInvoiceBankingDetails.Location = new System.Drawing.Point(324, 444);
       this.comboBoxNewInvoiceBankingDetails.Name = "comboBoxNewInvoiceBankingDetails";
       this.comboBoxNewInvoiceBankingDetails.Size = new System.Drawing.Size(356, 24);
@@ -164,24 +178,20 @@ namespace ZMS.Forms
       this.comboBoxNewInvoiceCurrency.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
       this.comboBoxNewInvoiceCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
       this.comboBoxNewInvoiceCurrency.FormattingEnabled = true;
-      this.comboBoxNewInvoiceCurrency.Items.AddRange(new object[] {
-            "R (South African Rand)",
-            "$ (United States Dollar)",
-            "£ (British Pound)",
-            "€ (European Euro)"});
       this.comboBoxNewInvoiceCurrency.Location = new System.Drawing.Point(446, 490);
       this.comboBoxNewInvoiceCurrency.Name = "comboBoxNewInvoiceCurrency";
       this.comboBoxNewInvoiceCurrency.Size = new System.Drawing.Size(234, 24);
       this.comboBoxNewInvoiceCurrency.TabIndex = 14;
+      this.comboBoxNewInvoiceCurrency.SelectedIndexChanged += new System.EventHandler(this.comboBoxNewInvoiceCurrency_SelectedIndexChanged);
       // 
       // lblSelectedCurrencySymbol
       // 
       this.lblSelectedCurrencySymbol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
       this.lblSelectedCurrencySymbol.AutoSize = true;
-      this.lblSelectedCurrencySymbol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-      this.lblSelectedCurrencySymbol.Location = new System.Drawing.Point(336, 564);
+      this.lblSelectedCurrencySymbol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+      this.lblSelectedCurrencySymbol.Location = new System.Drawing.Point(442, 564);
       this.lblSelectedCurrencySymbol.Name = "lblSelectedCurrencySymbol";
-      this.lblSelectedCurrencySymbol.Size = new System.Drawing.Size(0, 17);
+      this.lblSelectedCurrencySymbol.Size = new System.Drawing.Size(0, 20);
       this.lblSelectedCurrencySymbol.TabIndex = 15;
       // 
       // lblInvoiceCurrency
@@ -209,10 +219,10 @@ namespace ZMS.Forms
       // 
       this.lblRandSymbol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
       this.lblRandSymbol.AutoSize = true;
-      this.lblRandSymbol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-      this.lblRandSymbol.Location = new System.Drawing.Point(336, 603);
+      this.lblRandSymbol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+      this.lblRandSymbol.Location = new System.Drawing.Point(442, 603);
       this.lblRandSymbol.Name = "lblRandSymbol";
-      this.lblRandSymbol.Size = new System.Drawing.Size(18, 17);
+      this.lblRandSymbol.Size = new System.Drawing.Size(21, 20);
       this.lblRandSymbol.TabIndex = 18;
       this.lblRandSymbol.Text = "R";
       this.lblRandSymbol.Click += new System.EventHandler(this.lblRandSymbol_Click);
@@ -226,20 +236,6 @@ namespace ZMS.Forms
       this.lblInvoiceTotalRand.Name = "lblInvoiceTotalRand";
       this.lblInvoiceTotalRand.Size = new System.Drawing.Size(0, 17);
       this.lblInvoiceTotalRand.TabIndex = 19;
-      // 
-      // lblNewInvoiceTitle
-      // 
-      this.lblNewInvoiceTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.lblNewInvoiceTitle.AutoSize = true;
-      this.lblNewInvoiceTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblNewInvoiceTitle.ForeColor = System.Drawing.Color.White;
-      this.lblNewInvoiceTitle.Location = new System.Drawing.Point(288, 26);
-      this.lblNewInvoiceTitle.Name = "lblNewInvoiceTitle";
-      this.lblNewInvoiceTitle.Size = new System.Drawing.Size(131, 26);
-      this.lblNewInvoiceTitle.TabIndex = 2;
-      this.lblNewInvoiceTitle.Text = "New Invoice";
       // 
       // lblNewInvoiceOrderCount
       // 
@@ -263,11 +259,45 @@ namespace ZMS.Forms
       this.lblOrderCountNumber.TabIndex = 21;
       this.lblOrderCountNumber.Text = "0";
       // 
+      // lblCurrencySymbol
+      // 
+      this.lblCurrencySymbol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.lblCurrencySymbol.AutoSize = true;
+      this.lblCurrencySymbol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+      this.lblCurrencySymbol.Location = new System.Drawing.Point(442, 564);
+      this.lblCurrencySymbol.Name = "lblCurrencySymbol";
+      this.lblCurrencySymbol.Size = new System.Drawing.Size(0, 20);
+      this.lblCurrencySymbol.TabIndex = 22;
+      // 
+      // lblRandConversion
+      // 
+      this.lblRandConversion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.lblRandConversion.AutoSize = true;
+      this.lblRandConversion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+      this.lblRandConversion.Location = new System.Drawing.Point(552, 600);
+      this.lblRandConversion.Name = "lblRandConversion";
+      this.lblRandConversion.Size = new System.Drawing.Size(0, 20);
+      this.lblRandConversion.TabIndex = 24;
+      // 
+      // lblCurrencyTotal
+      // 
+      this.lblCurrencyTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+      this.lblCurrencyTotal.AutoSize = true;
+      this.lblCurrencyTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+      this.lblCurrencyTotal.Location = new System.Drawing.Point(552, 564);
+      this.lblCurrencyTotal.Name = "lblCurrencyTotal";
+      this.lblCurrencyTotal.Size = new System.Drawing.Size(36, 20);
+      this.lblCurrencyTotal.TabIndex = 25;
+      this.lblCurrencyTotal.Text = "120";
+      // 
       // NewInvoice
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(692, 714);
+      this.Controls.Add(this.lblCurrencyTotal);
+      this.Controls.Add(this.lblRandConversion);
+      this.Controls.Add(this.lblCurrencySymbol);
       this.Controls.Add(this.lblOrderCountNumber);
       this.Controls.Add(this.lblNewInvoiceOrderCount);
       this.Controls.Add(this.lblInvoiceTotalRand);
@@ -318,5 +348,8 @@ namespace ZMS.Forms
     private System.Windows.Forms.Label lblNewInvoiceTitle;
     private System.Windows.Forms.Label lblNewInvoiceOrderCount;
     private System.Windows.Forms.Label lblOrderCountNumber;
+    private System.Windows.Forms.Label lblCurrencySymbol;
+    private System.Windows.Forms.Label lblRandConversion;
+    private System.Windows.Forms.Label lblCurrencyTotal;
   }
 }

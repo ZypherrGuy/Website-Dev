@@ -28,14 +28,16 @@
     /// </summary>
     private void InitializeComponent()
     {
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
       this.btnCreateInvoice = new System.Windows.Forms.Button();
-      this.dataGridView1 = new System.Windows.Forms.DataGridView();
       this.comboBoxInvoiceStatus = new System.Windows.Forms.ComboBox();
       this.btnOrderStatusPaidandClosed = new System.Windows.Forms.Button();
       this.btnReviseOrder = new System.Windows.Forms.Button();
       this.btnReissueInvoice = new System.Windows.Forms.Button();
       this.lblOrderState = new System.Windows.Forms.Label();
-      ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+      this.dataGridInvoiceList = new System.Windows.Forms.DataGridView();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridInvoiceList)).BeginInit();
       this.SuspendLayout();
       // 
       // btnCreateInvoice
@@ -53,17 +55,6 @@
       this.btnCreateInvoice.UseVisualStyleBackColor = true;
       this.btnCreateInvoice.Click += new System.EventHandler(this.btnCreateInvoice_Click);
       // 
-      // dataGridView1
-      // 
-      this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.dataGridView1.Location = new System.Drawing.Point(13, 43);
-      this.dataGridView1.Name = "dataGridView1";
-      this.dataGridView1.Size = new System.Drawing.Size(775, 343);
-      this.dataGridView1.TabIndex = 3;
-      // 
       // comboBoxInvoiceStatus
       // 
       this.comboBoxInvoiceStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -76,6 +67,7 @@
       this.comboBoxInvoiceStatus.Name = "comboBoxInvoiceStatus";
       this.comboBoxInvoiceStatus.Size = new System.Drawing.Size(343, 24);
       this.comboBoxInvoiceStatus.TabIndex = 4;
+      this.comboBoxInvoiceStatus.SelectedIndexChanged += new System.EventHandler(this.comboBoxInvoiceStatus_SelectedIndexChanged);
       // 
       // btnOrderStatusPaidandClosed
       // 
@@ -129,22 +121,55 @@
       this.lblOrderState.TabIndex = 8;
       this.lblOrderState.Text = "Order State: ";
       // 
+      // dataGridInvoiceList
+      // 
+      this.dataGridInvoiceList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.dataGridInvoiceList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+      this.dataGridInvoiceList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+      this.dataGridInvoiceList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+      dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.dataGridInvoiceList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+      this.dataGridInvoiceList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.dataGridInvoiceList.Cursor = System.Windows.Forms.Cursors.Arrow;
+      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+      dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+      dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+      dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+      this.dataGridInvoiceList.DefaultCellStyle = dataGridViewCellStyle2;
+      this.dataGridInvoiceList.Location = new System.Drawing.Point(12, 47);
+      this.dataGridInvoiceList.Name = "dataGridInvoiceList";
+      this.dataGridInvoiceList.RowTemplate.ReadOnly = true;
+      this.dataGridInvoiceList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+      this.dataGridInvoiceList.Size = new System.Drawing.Size(776, 343);
+      this.dataGridInvoiceList.TabIndex = 9;
+      // 
       // Invoices
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
+      this.Controls.Add(this.dataGridInvoiceList);
       this.Controls.Add(this.lblOrderState);
       this.Controls.Add(this.btnReissueInvoice);
       this.Controls.Add(this.btnReviseOrder);
       this.Controls.Add(this.btnOrderStatusPaidandClosed);
       this.Controls.Add(this.comboBoxInvoiceStatus);
-      this.Controls.Add(this.dataGridView1);
       this.Controls.Add(this.btnCreateInvoice);
       this.Name = "Invoices";
       this.Text = "Invoices";
       this.Load += new System.EventHandler(this.Invoices_Load);
-      ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridInvoiceList)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -153,11 +178,11 @@
         #endregion
 
         private System.Windows.Forms.Button btnCreateInvoice;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox comboBoxInvoiceStatus;
         private System.Windows.Forms.Button btnOrderStatusPaidandClosed;
     private System.Windows.Forms.Button btnReviseOrder;
     private System.Windows.Forms.Button btnReissueInvoice;
     private System.Windows.Forms.Label lblOrderState;
+    public System.Windows.Forms.DataGridView dataGridInvoiceList;
   }
 }

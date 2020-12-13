@@ -12,6 +12,9 @@ namespace ZMS.Forms
 {
   public partial class Clients : Form
   {
+    DbConnections connect = new DbConnections();
+    FormOperations action = new FormOperations();
+
     public Clients()
     {
       InitializeComponent();
@@ -21,6 +24,7 @@ namespace ZMS.Forms
     {
       LoadTheme();
       btnEditClient.Visible = false;
+      connect.GetClientList(dataGridClients);
     }
 
     private void LoadTheme()

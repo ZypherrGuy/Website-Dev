@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.VisualBasic;
+using System.Net;
 
 namespace ZMS
 {
@@ -19,6 +20,7 @@ namespace ZMS
   {
     MySqlConnection conn = new MySqlConnection();
     readonly DbConnections connect = new DbConnections();
+    private const string urlPattern = "http://rate-exchange-1.appspot.com/currency?from={0}&to={1}";
 
     public void CloseCurrentForm(string formName)
     {
@@ -238,6 +240,22 @@ namespace ZMS
       finally
       {
         GC.Collect();
+      }
+    }
+
+    public string GetLiveConversionToRand(decimal amount, string fromCurrency, string toCurrency)
+    {
+      string url = string.Format(urlPattern, fromCurrency, toCurrency);
+
+      using (var wc = new WebClient())
+      {
+        var json = wc.DownloadString(url);
+
+        Newtonsoft.Json.Linq.JToken token = Newtonsoft.Json.Linq.JObject.Parse(json);
+        decimal exchangeRate = (decimal)token.SelectToken("rate");
+
+        var convertedAmount = String.Format("{0:0.00}", amount * exchangeRate);
+        return convertedAmount.ToString();
       }
     }
 
