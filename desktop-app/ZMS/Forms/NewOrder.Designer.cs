@@ -38,7 +38,6 @@
       this.lblOrderCost = new System.Windows.Forms.Label();
       this.lblOrderDeadline = new System.Windows.Forms.Label();
       this.dateTimeSubDate = new System.Windows.Forms.DateTimePicker();
-      this.lblWordCount = new System.Windows.Forms.Label();
       this.lblScheduleOrder = new System.Windows.Forms.Label();
       this.inputOrderTitle = new System.Windows.Forms.TextBox();
       this.inputOrderCost = new System.Windows.Forms.TextBox();
@@ -46,7 +45,6 @@
       this.label1 = new System.Windows.Forms.Label();
       this.dateTimeSchedDate = new System.Windows.Forms.DateTimePicker();
       this.comboBoxOrderType = new System.Windows.Forms.ComboBox();
-      this.comboBoxWordCount = new System.Windows.Forms.ComboBox();
       this.comboBoxClient = new System.Windows.Forms.ComboBox();
       this.comboBoxCurrency = new System.Windows.Forms.ComboBox();
       this.comboBoxAssignee = new System.Windows.Forms.ComboBox();
@@ -132,7 +130,7 @@
       // 
       this.lblClient.AutoSize = true;
       this.lblClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblClient.Location = new System.Drawing.Point(13, 175);
+      this.lblClient.Location = new System.Drawing.Point(466, 140);
       this.lblClient.Name = "lblClient";
       this.lblClient.Size = new System.Drawing.Size(43, 17);
       this.lblClient.TabIndex = 5;
@@ -142,7 +140,7 @@
       // 
       this.lblOrderCost.AutoSize = true;
       this.lblOrderCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblOrderCost.Location = new System.Drawing.Point(466, 175);
+      this.lblOrderCost.Location = new System.Drawing.Point(466, 182);
       this.lblOrderCost.Name = "lblOrderCost";
       this.lblOrderCost.Size = new System.Drawing.Size(89, 17);
       this.lblOrderCost.TabIndex = 6;
@@ -166,16 +164,6 @@
       this.dateTimeSubDate.Size = new System.Drawing.Size(641, 23);
       this.dateTimeSubDate.TabIndex = 8;
       // 
-      // lblWordCount
-      // 
-      this.lblWordCount.AutoSize = true;
-      this.lblWordCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblWordCount.Location = new System.Drawing.Point(466, 137);
-      this.lblWordCount.Name = "lblWordCount";
-      this.lblWordCount.Size = new System.Drawing.Size(83, 17);
-      this.lblWordCount.TabIndex = 9;
-      this.lblWordCount.Text = "Word Count";
-      // 
       // lblScheduleOrder
       // 
       this.lblScheduleOrder.AutoSize = true;
@@ -197,7 +185,7 @@
       // inputOrderCost
       // 
       this.inputOrderCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.inputOrderCost.Location = new System.Drawing.Point(694, 172);
+      this.inputOrderCost.Location = new System.Drawing.Point(694, 179);
       this.inputOrderCost.Name = "inputOrderCost";
       this.inputOrderCost.Size = new System.Drawing.Size(165, 23);
       this.inputOrderCost.TabIndex = 14;
@@ -233,31 +221,16 @@
       // 
       this.comboBoxOrderType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBoxOrderType.FormattingEnabled = true;
-      this.comboBoxOrderType.Items.AddRange(new object[] {
-            "Article",
-            "blog post"});
       this.comboBoxOrderType.Location = new System.Drawing.Point(156, 137);
       this.comboBoxOrderType.Name = "comboBoxOrderType";
       this.comboBoxOrderType.Size = new System.Drawing.Size(261, 24);
       this.comboBoxOrderType.TabIndex = 20;
       // 
-      // comboBoxWordCount
-      // 
-      this.comboBoxWordCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.comboBoxWordCount.FormattingEnabled = true;
-      this.comboBoxWordCount.Items.AddRange(new object[] {
-            "300",
-            "500"});
-      this.comboBoxWordCount.Location = new System.Drawing.Point(598, 134);
-      this.comboBoxWordCount.Name = "comboBoxWordCount";
-      this.comboBoxWordCount.Size = new System.Drawing.Size(261, 24);
-      this.comboBoxWordCount.TabIndex = 21;
-      // 
       // comboBoxClient
       // 
       this.comboBoxClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBoxClient.FormattingEnabled = true;
-      this.comboBoxClient.Location = new System.Drawing.Point(156, 172);
+      this.comboBoxClient.Location = new System.Drawing.Point(598, 137);
       this.comboBoxClient.Name = "comboBoxClient";
       this.comboBoxClient.Size = new System.Drawing.Size(261, 24);
       this.comboBoxClient.TabIndex = 22;
@@ -271,7 +244,7 @@
             "ZAR",
             "USD",
             "AED"});
-      this.comboBoxCurrency.Location = new System.Drawing.Point(598, 172);
+      this.comboBoxCurrency.Location = new System.Drawing.Point(598, 179);
       this.comboBoxCurrency.Name = "comboBoxCurrency";
       this.comboBoxCurrency.Size = new System.Drawing.Size(90, 24);
       this.comboBoxCurrency.TabIndex = 23;
@@ -280,9 +253,6 @@
       // 
       this.comboBoxAssignee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBoxAssignee.FormattingEnabled = true;
-      this.comboBoxAssignee.Items.AddRange(new object[] {
-            "Tyle Slater",
-            "Mike King"});
       this.comboBoxAssignee.Location = new System.Drawing.Point(156, 428);
       this.comboBoxAssignee.Name = "comboBoxAssignee";
       this.comboBoxAssignee.Size = new System.Drawing.Size(703, 24);
@@ -337,7 +307,6 @@
       this.Controls.Add(this.label2);
       this.Controls.Add(this.comboBoxCurrency);
       this.Controls.Add(this.comboBoxClient);
-      this.Controls.Add(this.comboBoxWordCount);
       this.Controls.Add(this.comboBoxOrderType);
       this.Controls.Add(this.dateTimeSchedDate);
       this.Controls.Add(this.inputEditorURL);
@@ -345,7 +314,6 @@
       this.Controls.Add(this.inputOrderCost);
       this.Controls.Add(this.inputOrderTitle);
       this.Controls.Add(this.lblScheduleOrder);
-      this.Controls.Add(this.lblWordCount);
       this.Controls.Add(this.dateTimeSubDate);
       this.Controls.Add(this.lblOrderDeadline);
       this.Controls.Add(this.lblOrderCost);
@@ -378,7 +346,6 @@
     private System.Windows.Forms.Label lblOrderCost;
     private System.Windows.Forms.Label lblOrderDeadline;
     private System.Windows.Forms.DateTimePicker dateTimeSubDate;
-    private System.Windows.Forms.Label lblWordCount;
     private System.Windows.Forms.Label lblScheduleOrder;
     private System.Windows.Forms.TextBox inputOrderTitle;
     private System.Windows.Forms.TextBox inputOrderCost;
@@ -386,7 +353,6 @@
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.DateTimePicker dateTimeSchedDate;
     private System.Windows.Forms.ComboBox comboBoxOrderType;
-    private System.Windows.Forms.ComboBox comboBoxWordCount;
     private System.Windows.Forms.ComboBox comboBoxClient;
     private System.Windows.Forms.ComboBox comboBoxCurrency;
     private System.Windows.Forms.ComboBox comboBoxAssignee;

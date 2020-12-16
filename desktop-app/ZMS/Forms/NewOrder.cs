@@ -28,7 +28,9 @@ namespace ZMS.Forms
       this.Text = string.Empty;
       this.ControlBox = false;
 
+      connect.FillComboBox(comboBoxOrderType, getQuery.query_getAllCategoryList, "category_description");
       connect.FillComboBox(comboBoxClient, getQuery.query_getAllClientsList, "client_name");
+      connect.FillComboBox(comboBoxAssignee, getQuery.query_getAllAssigneeList, "assignee_name");
 
     }
 
@@ -58,7 +60,7 @@ namespace ZMS.Forms
 
     private void btnSubmitCreateOrder_Click(object sender, EventArgs e)
     {
-      action.CreateNewOrder(comboBoxOrderType, inputOrderTitle, dateTimeSchedDate, dateTimeSubDate, inputEditorURL, comboBoxWordCount, comboBoxClient, comboBoxCurrency, inputOrderCost, comboBoxOrderSize, comboBoxAssignee);
+      action.CreateNewOrder(comboBoxOrderType, inputOrderTitle, dateTimeSchedDate, dateTimeSubDate , inputEditorURL, comboBoxOrderType, comboBoxClient, comboBoxCurrency, inputOrderCost, comboBoxOrderSize, comboBoxAssignee );
     }
   }
 }

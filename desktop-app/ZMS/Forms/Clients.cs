@@ -50,7 +50,6 @@ namespace ZMS.Forms
 
     private void inputSearch_TextChanged(object sender, EventArgs e)
     {
-      
         connect.FillDataGridView(dataGridClients, getQuery.query_getClientList + " WHERE client_id like '%" + inputSearch.Text + "%' OR client_name like '%" + inputSearch.Text + "%' OR clientRep_name like '%" + inputSearch.Text + "%'");
     }
   }

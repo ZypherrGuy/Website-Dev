@@ -27,29 +27,18 @@ namespace ZMS
     {
       connect.OpenSuccessfulDBConnection(conn);
 
-      MySqlCommand orderCategoryBLG = new MySqlCommand(getQuery.query_countOrderCategoryCode_BLG, conn);
-      MySqlCommand cmd3 = new MySqlCommand(getQuery.query_countOrderCategoryCode_ART, conn);
+      MySqlCommand Category = new MySqlCommand(getQuery.query_countOrderCategoryCode + "WHERE p.category_description = '" + comboBox.SelectedItem.ToString()  + "'", conn);
 
-      int blg_rows_count = Convert.ToInt32(orderCategoryBLG.ExecuteScalar());
-      int art_rows_count = Convert.ToInt32(cmd3.ExecuteScalar());
-      string id = null;
+      int category_rows_count = Convert.ToInt32(Category.ExecuteScalar());
+
       string currentYear = DateTime.Now.Year.ToString();
 
-      switch (comboBox.SelectedItem)
-      {
-        case "blog post":
-          id = "BLG-" + currentYear + "-" + blg_rows_count++;
-          return id;
-        case "Article":
-          id = "ART-" + currentYear + "-" + art_rows_count++;
-          return id;
-        default:
-          MessageBox.Show("Invalid Order Type Selected.");
-          return null;
-      }
+      string id = GetCategoryCode(comboBox) + "-" + currentYear + "-" + category_rows_count++;
+      return id;
     }
+       
 
-    internal void CreateNewOrder(ComboBox orderType, TextBox orderTitle, DateTimePicker scheduleDate, DateTimePicker deadlineDate, TextBox editorURL, ComboBox wordCount, ComboBox clientName, ComboBox currency, TextBox orderValue, ComboBox orderSize, ComboBox assignee)
+    internal void CreateNewOrder(ComboBox orderType, TextBox orderTitle, DateTimePicker scheduleDate, DateTimePicker deadlineDate, TextBox editorURL, ComboBox category, ComboBox clientName, ComboBox currency, TextBox orderValue, ComboBox orderSize, ComboBox assignee)
     {
       try
       {
@@ -67,19 +56,17 @@ namespace ZMS
         cmd.Parameters.AddWithValue("@is_complete", 0);
         cmd.Parameters.AddWithValue("@is_invoiced", 0);
         cmd.Parameters.AddWithValue("@is_closed", 0);
-        cmd.Parameters.AddWithValue("@category_id", 1);
-        cmd.Parameters.AddWithValue("@client_id", 1);
-        cmd.Parameters.AddWithValue("@invoice_id", 1);
+        cmd.Parameters.AddWithValue("@category_id", GetCategoryID(category));
+        cmd.Parameters.AddWithValue("@client_id", GetClientID(clientName));
+        cmd.Parameters.AddWithValue("@invoice_id", null);
         cmd.Parameters.AddWithValue("@is_inprogress", 1);
-        cmd.Parameters.AddWithValue("@client_name", clientName.SelectedItem);
-        cmd.Parameters.AddWithValue("@currency_id", currency.SelectedItem);
+        cmd.Parameters.AddWithValue("@currency_id", GetCurrencyID(currency));
         cmd.Parameters.AddWithValue("@order_cost", orderValue.Text);
         cmd.Parameters.AddWithValue("@order_size", Convert.ToInt32(orderSize.SelectedItem));
         cmd.Parameters.AddWithValue("@order_dateCreated", DateTime.Now);
-        cmd.Parameters.AddWithValue("@date_orderCompleted", DateTime.MinValue);
-        cmd.Parameters.AddWithValue("@assignee_id", 1);
-        cmd.Parameters.AddWithValue("@order_assignee", assignee.SelectedItem);
-        cmd.Parameters.AddWithValue("@created_by", "Fern Lahoud");
+        cmd.Parameters.AddWithValue("@date_orderCompleted", null);
+        cmd.Parameters.AddWithValue("@assignee_id", GetAssigneeID(assignee));
+        cmd.Parameters.AddWithValue("@created_by", "UserID1");
 
         int result = cmd.ExecuteNonQuery();
 
@@ -216,6 +203,86 @@ namespace ZMS
         GC.Collect();
       }
     }*/
+
+    public int GetCategoryID(ComboBox combobox)
+    {
+      int categoryID;
+      using (MySqlConnection connection = new MySqlConnection(connect.GetDBConnectionString()))
+      using (MySqlCommand command = new MySqlCommand("SELECT category_id FROM `tb_pricelist` WHERE category_description = '" + combobox.SelectedItem.ToString() + "'", connection))
+      {
+        connection.Open();
+        using (MySqlDataReader reader = command.ExecuteReader())
+        {
+          reader.Read();
+          categoryID = Convert.ToInt32(reader["category_id"]);
+          return categoryID;
+        }
+      }
+    }
+
+    public string GetCategoryCode(ComboBox combobox)
+    {
+      string categoryCode;
+      using (MySqlConnection connection = new MySqlConnection(connect.GetDBConnectionString()))
+      using (MySqlCommand command = new MySqlCommand("SELECT category_code FROM `tb_pricelist` WHERE category_description = '" + combobox.SelectedItem.ToString() + "'", connection))
+      {
+        connection.Open();
+        using (MySqlDataReader reader = command.ExecuteReader())
+        {
+          reader.Read();
+          categoryCode = reader["category_code"].ToString();
+          return categoryCode;
+        }
+      }
+    }
+
+    public int GetAssigneeID(ComboBox combobox)
+    {
+      int assigneeID;
+      using (MySqlConnection connection = new MySqlConnection(connect.GetDBConnectionString()))
+      using (MySqlCommand command = new MySqlCommand("SELECT assignee_id FROM `tb_assignee` WHERE assignee_name = '" + combobox.SelectedItem.ToString() + "'", connection))
+      {
+        connection.Open();
+        using (MySqlDataReader reader = command.ExecuteReader())
+        {
+          reader.Read();
+          assigneeID = Convert.ToInt32(reader["assignee_id"]);
+          return assigneeID;
+        }
+      }
+    }
+    
+    public int GetCurrencyID(ComboBox combobox)
+    {
+      int currencyID;
+      using (MySqlConnection connection = new MySqlConnection(connect.GetDBConnectionString()))
+      using (MySqlCommand command = new MySqlCommand("SELECT currency_id FROM `tb_currency` WHERE currency_code = '" + combobox.SelectedItem.ToString() + "'", connection))
+      {
+        connection.Open();
+        using (MySqlDataReader reader = command.ExecuteReader())
+        {
+          reader.Read();
+          currencyID = Convert.ToInt32(reader["currency_id"]);
+          return currencyID;
+        }
+      }
+    }
+
+    public int GetClientID(ComboBox combobox)
+    {
+      int clientID;
+      using (MySqlConnection connection = new MySqlConnection(connect.GetDBConnectionString()))
+      using (MySqlCommand command = new MySqlCommand("SELECT client_id FROM `tb_client` WHERE client_name = '" + combobox.SelectedItem.ToString() + "'", connection))
+      {
+        connection.Open();
+        using (MySqlDataReader reader = command.ExecuteReader())
+        {
+          reader.Read();
+          clientID = Convert.ToInt32(reader["client_id"]);
+          return clientID;
+        }
+      }
+    }
 
     public string GetLiveConversionToRand(decimal amount, string fromCurrency, string toCurrency)
     {
