@@ -14,6 +14,7 @@ namespace ZMS.Forms
   public partial class Orders : Form
   {
     readonly DbConnections connect = new DbConnections();
+    readonly QueryStorage getQuery = new QueryStorage();
     FormOperations action = new FormOperations();
 
     public Orders()
@@ -28,8 +29,8 @@ namespace ZMS.Forms
 
       try
       {
-
-        connect.GetOrderList(dataGridViewOrderList);
+        comboBoxOrderState.SelectedIndex = 0;
+        connect.FillDataGridView(dataGridViewOrderList, getQuery.query_getInprogressOrderList);
       }
       catch (Exception ex)
       {
@@ -64,17 +65,17 @@ namespace ZMS.Forms
       newOrderForm.Show();
     }
 
-    private void btnOrderHistory_Click(object sender, EventArgs e)
+    private void btnGenerateReport_Click(object sender, EventArgs e)
     {
-      OrderHistory orderHistory = new OrderHistory();
-      orderHistory.Show();
+     // action.ExportToExel(dataGridViewOrderList);
     }
 
     private void btnRefreshOrderTable_Click(object sender, EventArgs e)
     {
       try
       {
-        connect.GetOrderList(dataGridViewOrderList);
+        comboBoxOrderState.SelectedIndex = 0;
+        connect.FillDataGridView(dataGridViewOrderList, getQuery.query_getInprogressOrderList);
       }
       catch (Exception ex)
       {
@@ -85,6 +86,51 @@ namespace ZMS.Forms
     private void btnCompleteOrder_Click(object sender, EventArgs e)
     {
       action.CompleteOrder(dataGridViewOrderList);
+    }
+
+    private void comboBoxOrderState_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      switch (comboBoxOrderState.SelectedIndex)
+      {
+        case 0:
+          connect.FillDataGridView(dataGridViewOrderList, getQuery.query_getInprogressOrderList);
+          btnCompleteOrder.Enabled = true;
+          break;
+
+        case 1:
+          connect.FillDataGridView(dataGridViewOrderList, getQuery.query_getOrdersCompletedAndPendingInvoiceList);
+          btnCompleteOrder.Enabled = false;
+          break;
+
+        case 2:
+          connect.FillDataGridView(dataGridViewOrderList, getQuery.query_getOrdersInvoicedAndPendingPayment);
+          btnCompleteOrder.Enabled = false;
+          break;
+        
+        case 3:
+          connect.FillDataGridView(dataGridViewOrderList, getQuery.query_getOrdersPaidAndClosedList);
+          btnCompleteOrder.Enabled = false;
+          break;
+
+        default:
+          break;
+      }
+
+      if (btnCompleteOrder.Enabled == false)
+      {
+        btnCompleteOrder.BackColor = Color.Gray;
+      }
+      else
+      {
+        btnCompleteOrder.BackColor = ThemeColor.PrimaryColor;
+      }
+
+    }
+
+    private void inputSearch_TextChanged(object sender, EventArgs e)
+    {
+      comboBoxOrderState.Text = "";
+      connect.FillDataGridView(dataGridViewOrderList, getQuery.query_getAllOrdersSearchbar + " WHERE title like '%" + inputSearch.Text + "%' OR order_id like '%" + inputSearch.Text + "%'");
     }
   }
 }

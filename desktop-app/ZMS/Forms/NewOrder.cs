@@ -14,6 +14,8 @@ namespace ZMS.Forms
   public partial class NewOrder : Form 
   {
     readonly FormOperations action = new FormOperations();
+    readonly DbConnections connect = new DbConnections();
+    readonly QueryStorage getQuery = new QueryStorage();
 
     public NewOrder()
     {
@@ -25,6 +27,9 @@ namespace ZMS.Forms
       LoadTheme();
       this.Text = string.Empty;
       this.ControlBox = false;
+
+      connect.FillComboBox(comboBoxClient, getQuery.query_getAllClientsList, "client_name");
+
     }
 
     private void LoadTheme()

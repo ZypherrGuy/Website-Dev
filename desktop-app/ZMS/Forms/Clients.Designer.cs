@@ -28,31 +28,16 @@
     /// </summary>
     private void InitializeComponent()
     {
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-      this.comboBoxClientSort = new System.Windows.Forms.ComboBox();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
       this.btnNewClient = new System.Windows.Forms.Button();
       this.btnEditClient = new System.Windows.Forms.Button();
       this.btnArchiveClient = new System.Windows.Forms.Button();
-      this.lblClientSort = new System.Windows.Forms.Label();
       this.dataGridClients = new System.Windows.Forms.DataGridView();
+      this.lblInvoiceSearch = new System.Windows.Forms.Label();
+      this.inputSearch = new System.Windows.Forms.TextBox();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridClients)).BeginInit();
       this.SuspendLayout();
-      // 
-      // comboBoxClientSort
-      // 
-      this.comboBoxClientSort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.comboBoxClientSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-      this.comboBoxClientSort.FormattingEnabled = true;
-      this.comboBoxClientSort.Items.AddRange(new object[] {
-            "Name",
-            "Client",
-            "Region"});
-      this.comboBoxClientSort.Location = new System.Drawing.Point(530, 12);
-      this.comboBoxClientSort.Name = "comboBoxClientSort";
-      this.comboBoxClientSort.Size = new System.Drawing.Size(183, 24);
-      this.comboBoxClientSort.TabIndex = 0;
-      this.comboBoxClientSort.SelectedIndexChanged += new System.EventHandler(this.comboBoxClientSort_SelectedIndexChanged);
       // 
       // btnNewClient
       // 
@@ -94,17 +79,6 @@
       this.btnArchiveClient.Text = "Archive Client";
       this.btnArchiveClient.UseVisualStyleBackColor = true;
       // 
-      // lblClientSort
-      // 
-      this.lblClientSort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.lblClientSort.AutoSize = true;
-      this.lblClientSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-      this.lblClientSort.Location = new System.Drawing.Point(463, 15);
-      this.lblClientSort.Name = "lblClientSort";
-      this.lblClientSort.Size = new System.Drawing.Size(58, 17);
-      this.lblClientSort.TabIndex = 6;
-      this.lblClientSort.Text = "Sort By:";
-      // 
       // dataGridClients
       // 
       this.dataGridClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -113,42 +87,63 @@
       this.dataGridClients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
       this.dataGridClients.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
       this.dataGridClients.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-      dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-      dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-      dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-      dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-      dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-      this.dataGridClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+      dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+      dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.dataGridClients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
       this.dataGridClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
       this.dataGridClients.Cursor = System.Windows.Forms.Cursors.Arrow;
-      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-      dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-      dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-      dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-      dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-      dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-      this.dataGridClients.DefaultCellStyle = dataGridViewCellStyle2;
-      this.dataGridClients.Location = new System.Drawing.Point(12, 44);
+      dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+      dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+      dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+      dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+      this.dataGridClients.DefaultCellStyle = dataGridViewCellStyle4;
+      this.dataGridClients.Location = new System.Drawing.Point(12, 54);
       this.dataGridClients.Name = "dataGridClients";
       this.dataGridClients.RowTemplate.ReadOnly = true;
       this.dataGridClients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-      this.dataGridClients.Size = new System.Drawing.Size(701, 420);
+      this.dataGridClients.Size = new System.Drawing.Size(701, 407);
       this.dataGridClients.TabIndex = 10;
+      // 
+      // lblInvoiceSearch
+      // 
+      this.lblInvoiceSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.lblInvoiceSearch.AutoSize = true;
+      this.lblInvoiceSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+      this.lblInvoiceSearch.Location = new System.Drawing.Point(357, 18);
+      this.lblInvoiceSearch.Name = "lblInvoiceSearch";
+      this.lblInvoiceSearch.Size = new System.Drawing.Size(61, 17);
+      this.lblInvoiceSearch.TabIndex = 18;
+      this.lblInvoiceSearch.Text = "Search: ";
+      // 
+      // inputSearch
+      // 
+      this.inputSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.inputSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.inputSearch.Location = new System.Drawing.Point(424, 15);
+      this.inputSearch.Name = "inputSearch";
+      this.inputSearch.Size = new System.Drawing.Size(289, 23);
+      this.inputSearch.TabIndex = 17;
+      this.inputSearch.TextChanged += new System.EventHandler(this.inputSearch_TextChanged);
       // 
       // Clients
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(725, 521);
+      this.Controls.Add(this.lblInvoiceSearch);
+      this.Controls.Add(this.inputSearch);
       this.Controls.Add(this.dataGridClients);
-      this.Controls.Add(this.lblClientSort);
       this.Controls.Add(this.btnArchiveClient);
       this.Controls.Add(this.btnEditClient);
       this.Controls.Add(this.btnNewClient);
-      this.Controls.Add(this.comboBoxClientSort);
       this.Name = "Clients";
       this.Text = "Clients";
       this.Load += new System.EventHandler(this.Clients_Load);
@@ -159,12 +154,11 @@
     }
 
     #endregion
-
-    private System.Windows.Forms.ComboBox comboBoxClientSort;
     private System.Windows.Forms.Button btnNewClient;
     private System.Windows.Forms.Button btnEditClient;
     private System.Windows.Forms.Button btnArchiveClient;
-    private System.Windows.Forms.Label lblClientSort;
     public System.Windows.Forms.DataGridView dataGridClients;
+    private System.Windows.Forms.Label lblInvoiceSearch;
+    private System.Windows.Forms.TextBox inputSearch;
   }
 }

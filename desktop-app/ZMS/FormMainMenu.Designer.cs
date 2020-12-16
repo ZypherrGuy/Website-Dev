@@ -300,7 +300,7 @@
       // 
       this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
       this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-      this.pictureBox2.Location = new System.Drawing.Point(285, 125);
+      this.pictureBox2.Location = new System.Drawing.Point(285, 124);
       this.pictureBox2.Name = "pictureBox2";
       this.pictureBox2.Size = new System.Drawing.Size(450, 250);
       this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -319,7 +319,6 @@
       this.Name = "FormMainMenu";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "FormMainMenu";
-      this.Load += new System.EventHandler(this.FormMainMenu_Load);
       this.panelMenu.ResumeLayout(false);
       this.panelLogo.ResumeLayout(false);
       this.panelLogo.PerformLayout();
@@ -347,11 +346,11 @@
     private System.Windows.Forms.PictureBox pictureBox1;
     private System.Windows.Forms.Panel panelDesktopPanel;
     private System.Windows.Forms.Button btnCloseChildForm;
-    private System.Windows.Forms.PictureBox pictureBox2;
     private System.Windows.Forms.Button btnClose;
     private System.Windows.Forms.Button btnMinimize;
     private System.Windows.Forms.Button btnFullScreen;
     private System.Windows.Forms.Label lblSoftwareLabel;
+    private System.Windows.Forms.PictureBox pictureBox2;
   }
 }
 

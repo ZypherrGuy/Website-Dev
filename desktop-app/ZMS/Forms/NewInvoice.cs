@@ -11,42 +11,46 @@ using System.Windows.Forms;
 
 namespace ZMS.Forms
 {
-    public partial class NewInvoice : Form
+  public partial class NewInvoice : Form
+  {
+    DbConnections connect = new DbConnections();
+    FormOperations action = new FormOperations();
+    QueryStorage getQuery = new QueryStorage();
+    List<int> invoiceOrderValues = new List<int>();
+
+    public NewInvoice()
     {
-        DbConnections connect = new DbConnections();
-        FormOperations action = new FormOperations();
+      InitializeComponent();
+    }
 
-        public NewInvoice()
+    private void NewInvoice_Load(object sender, EventArgs e)
+    {
+      LoadTheme();
+      this.Text = string.Empty;
+      this.ControlBox = false;
+
+      connect.FillComboBox(comboBoxNewInvoiceCurrency, getQuery.query_getAllCurrenciesList, "currency_code");
+      connect.FillComboBox(comboBoxNewInvoiceClientSelect, getQuery.query_getAllClientsList, "client_name");
+      connect.FillComboBox(comboBoxNewInvoiceBankingDetails, getQuery.query_getAllAssigneeList, "assignee_name");
+      comboBoxNewInvoiceClientSelect.SelectedIndex = 0;
+      comboBoxNewInvoiceCurrency.SelectedItem = "USD";
+      lblRandConversion.Text = action.GetLiveConversionToRand(Convert.ToInt32(lblCurrencyTotal.Text), comboBoxNewInvoiceCurrency.SelectedItem.ToString(), "ZAR");
+    }
+
+    private void LoadTheme()
+    {
+      panelNewInvoiceTop.BackColor = ThemeColor.PrimaryColor;
+      foreach (Control btns in this.Controls)
+      {
+        if (btns.GetType() == typeof(Button))
         {
-            InitializeComponent();
+          Button btn = (Button)btns;
+          btn.BackColor = ThemeColor.PrimaryColor;
+          btn.ForeColor = Color.White;
+          btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
-
-        private void NewInvoice_Load(object sender, EventArgs e)
-        {
-            LoadTheme();
-            this.Text = string.Empty;
-            this.ControlBox = false;
-
-            connect.FillComboBox(comboBoxNewInvoiceCurrency);
-
-        }
-
-        private void LoadTheme()
-        {
-            panelNewInvoiceTop.BackColor = ThemeColor.PrimaryColor;
-            foreach (Control btns in this.Controls)
-            {
-                if (btns.GetType() == typeof(Button))
-                {
-                    Button btn = (Button)btns;
-                    btn.BackColor = ThemeColor.PrimaryColor;
-                    btn.ForeColor = Color.White;
-                    btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
-                }
-            }
-            //label1.ForeColor = ThemeColor.SecondaryColor;
-            //label2.ForeColor = ThemeColor.PrimaryColor;
-        }
+      }
+    }
 
     private void btnCancelNewInvoice_Click(object sender, EventArgs e)
     {
@@ -57,22 +61,13 @@ namespace ZMS.Forms
         .ForEach(form => form.Close());
     }
 
-    private void lblRandSymbol_Click(object sender, EventArgs e)
-    {
-
-    }
-
     private void comboBoxNewInvoiceCurrency_SelectedIndexChanged(object sender, EventArgs e)
     {
-      //lblCurrencySymbol.Text
       using (MySqlConnection sqlConnection = new MySqlConnection(connect.GetDBConnectionString()))
       {
         MySqlCommand sqlCmd = new MySqlCommand("SELECT currency_symbol FROM tb_currency WHERE currency_code = '" + comboBoxNewInvoiceCurrency.SelectedItem + "'", sqlConnection);
         sqlConnection.Open();
         MySqlDataReader sqlReader = sqlCmd.ExecuteReader();
-
-        string x = lblCurrencyTotal.Text;
-        decimal y = Convert.ToInt32(x);
 
         while (sqlReader.Read())
         {
@@ -80,12 +75,61 @@ namespace ZMS.Forms
           lblRandConversion.Text = action.GetLiveConversionToRand(Convert.ToInt32(lblCurrencyTotal.Text), comboBoxNewInvoiceCurrency.SelectedItem.ToString(), "ZAR");
 
         }
-
-
-
         sqlReader.Close();
       }
+    }
 
-    } 
+    private void SetDefaultCurrency()
+    {
+      using (MySqlConnection sqlConnection = new MySqlConnection(connect.GetDBConnectionString()))
+      {
+        MySqlCommand sqlCmd = new MySqlCommand("SELECT * FROM tb_client WHERE client_name = '" + comboBoxNewInvoiceClientSelect.SelectedItem + "'", sqlConnection);
+        sqlConnection.Open();
+        MySqlDataReader sqlReader = sqlCmd.ExecuteReader();
+
+        while (sqlReader.Read())
+        {
+          comboBoxNewInvoiceCurrency.Text = sqlReader["default_currency"].ToString();
+        }
+        sqlReader.Close();
+      }
+    }
+
+    private void comboBoxNewInvoiceClientSelect_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      //connect.FillDataGridView(dataGridCompletedOrderList, getQuery.query_getSelectedClientPendingInvoiceList + "'" + comboBoxNewInvoiceClientSelect.SelectedItem + "'");
+      SetDefaultCurrency();
+    }
+
+    private void dataGridCompletedOrderList_SelectionChanged(object sender, EventArgs e)
+    {
+      lblOrderCountNumber.Text = dataGridCompletedOrderList.SelectedRows.Count.ToString();
+      invoiceOrderValues.Clear();
+      //string query = "SELECT value FROM tb_orders WHERE ";
+
+      foreach (DataGridViewRow row in dataGridCompletedOrderList.SelectedRows)
+      {
+        invoiceOrderValues.Add(Convert.ToInt32(row.Cells["Value"].Value));  
+      }
+      lblCurrencyTotal.Text = invoiceOrderValues.Sum().ToString();
+
+      try
+      {
+        if (comboBoxNewInvoiceCurrency.Text == "")
+        {
+          lblRandConversion.Text = action.GetLiveConversionToRand(Convert.ToInt32(lblCurrencyTotal.Text), "USD", "ZAR");
+        }
+        else
+        {
+          lblRandConversion.Text = action.GetLiveConversionToRand(Convert.ToInt32(lblCurrencyTotal.Text), comboBoxNewInvoiceCurrency.Text, "ZAR");
+        }
+      }
+      catch (Exception error)
+      {
+        MessageBox.Show(error.Message);
+      }
+      
+
+    }
   }
 }

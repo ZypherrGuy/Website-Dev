@@ -20,23 +20,17 @@ namespace ZMS
   {
     MySqlConnection conn = new MySqlConnection();
     readonly DbConnections connect = new DbConnections();
+    readonly QueryStorage getQuery = new QueryStorage();
     private const string urlPattern = "http://rate-exchange-1.appspot.com/currency?from={0}&to={1}";
-
-    public void CloseCurrentForm(string formName)
-    {
-
-    }
 
     public string GetOrderID(ComboBox comboBox)
     {
       connect.OpenSuccessfulDBConnection(conn);
-      string BLGquery = "Select COUNT(*) FROM tb_orders WHERE type_abr = 'blog Post'";
-      string ARTquery = "Select COUNT(*) FROM tb_orders WHERE type_abr = 'Article'";
 
-      MySqlCommand cmd2 = new MySqlCommand(BLGquery, conn);
-      MySqlCommand cmd3 = new MySqlCommand(ARTquery, conn);
+      MySqlCommand orderCategoryBLG = new MySqlCommand(getQuery.query_countOrderCategoryCode_BLG, conn);
+      MySqlCommand cmd3 = new MySqlCommand(getQuery.query_countOrderCategoryCode_ART, conn);
 
-      int blg_rows_count = Convert.ToInt32(cmd2.ExecuteScalar());
+      int blg_rows_count = Convert.ToInt32(orderCategoryBLG.ExecuteScalar());
       int art_rows_count = Convert.ToInt32(cmd3.ExecuteScalar());
       string id = null;
       string currentYear = DateTime.Now.Year.ToString();
@@ -62,33 +56,7 @@ namespace ZMS
         MySqlConnection mysqlConnection = new MySqlConnection();
         connect.OpenSuccessfulDBConnection(mysqlConnection);
 
-        String query = "INSERT INTO tb_orders VALUES (" +
-          "@order_id," +
-          "@title," +
-          "@description," +
-          "@scheduled_date," +
-          "@deadline_date," +
-          "@editor_url," +
-          "@status," +
-          "@is_complete," +
-          "@is_invoiced," +
-          "@is_closed," +
-          "@type_category," +
-          "@type_abr," +
-          "@type_wordcount," +
-          "@ClientID," +
-          "@InvoiceID," +
-          "@is_inprogress," +
-          "@client_name," +
-          "@currency_id," +
-          "@order_cost," +
-          "@order_size," +
-          "@order_dateCreated," +
-          "@date_orderCompleted," +
-          "@order_assignee," +
-          "@created_by)";
-
-        MySqlCommand cmd = new MySqlCommand(query, mysqlConnection);
+        MySqlCommand cmd = new MySqlCommand(getQuery.query_CreateNewOrder, mysqlConnection);
         cmd.Parameters.AddWithValue("@order_id", GetOrderID(orderType));
         cmd.Parameters.AddWithValue("@title", orderTitle.Text);
         cmd.Parameters.AddWithValue("@description", "Basic Order");
@@ -99,11 +67,9 @@ namespace ZMS
         cmd.Parameters.AddWithValue("@is_complete", 0);
         cmd.Parameters.AddWithValue("@is_invoiced", 0);
         cmd.Parameters.AddWithValue("@is_closed", 0);
-        cmd.Parameters.AddWithValue("@type_category", orderType.SelectedItem + " (" + wordCount.SelectedItem + ")");
-        cmd.Parameters.AddWithValue("@type_abr", orderType.SelectedItem);
-        cmd.Parameters.AddWithValue("@type_wordcount", Convert.ToInt32(wordCount.SelectedItem));
-        cmd.Parameters.AddWithValue("@ClientID", 1);
-        cmd.Parameters.AddWithValue("@InvoiceID", 1);
+        cmd.Parameters.AddWithValue("@category_id", 1);
+        cmd.Parameters.AddWithValue("@client_id", 1);
+        cmd.Parameters.AddWithValue("@invoice_id", 1);
         cmd.Parameters.AddWithValue("@is_inprogress", 1);
         cmd.Parameters.AddWithValue("@client_name", clientName.SelectedItem);
         cmd.Parameters.AddWithValue("@currency_id", currency.SelectedItem);
@@ -111,6 +77,7 @@ namespace ZMS
         cmd.Parameters.AddWithValue("@order_size", Convert.ToInt32(orderSize.SelectedItem));
         cmd.Parameters.AddWithValue("@order_dateCreated", DateTime.Now);
         cmd.Parameters.AddWithValue("@date_orderCompleted", DateTime.MinValue);
+        cmd.Parameters.AddWithValue("@assignee_id", 1);
         cmd.Parameters.AddWithValue("@order_assignee", assignee.SelectedItem);
         cmd.Parameters.AddWithValue("@created_by", "Fern Lahoud");
 
@@ -138,7 +105,7 @@ namespace ZMS
         MySqlConnection mysqlConnection = new MySqlConnection();
         connect.OpenSuccessfulDBConnection(mysqlConnection);
 
-        String completeOrderQuery = "UPDATE tb_orders SET is_complete = 1, status = 'Pending Invoice', date_orderCompleted  = @date_orderCompleted WHERE order_id = '" + orderGrid.SelectedCells[0].Value.ToString() + "'";
+        string completeOrderQuery = "UPDATE tb_orders SET is_complete = 1, status = 'Completed: Pending Invoice', is_inprogress = 0 , date_orderCompleted  = @date_orderCompleted WHERE order_id = '" + orderGrid.SelectedCells[0].Value.ToString() + "'";
 
         MySqlCommand cmd = new MySqlCommand(completeOrderQuery, mysqlConnection);
 
@@ -165,14 +132,21 @@ namespace ZMS
         {
           while (reader.Read())
           {
-            var x = reader["editor_url"].ToString();
-            System.Diagnostics.Process.Start(reader["editor_url"].ToString());
+            try
+            {
+              var x = reader["editor_url"].ToString();
+              System.Diagnostics.Process.Start(reader["editor_url"].ToString());
+            }
+            catch(Exception error)
+            {
+              MessageBox.Show("Err-" + error.GetHashCode().ToString() + ": Selected Url is not valid.");
+            }
           }
         }
       }
     }
 
-    internal void CreateOrderHistoyExel(DataGridView orderHistoryGrid)
+    /*internal void ExportToExel(DataGridView orderHistoryGrid)
     {
       MySqlConnection mysqlConnection = new MySqlConnection();
       connect.OpenSuccessfulDBConnection(mysqlConnection);
@@ -185,7 +159,7 @@ namespace ZMS
       object misValue = System.Reflection.Missing.Value;
       xlApp = new Excel.Application();
       Excel.Range ExelRange;
-      MySqlDataAdapter sqlADP = new MySqlDataAdapter("SELECT order_id AS 'Order ID', title AS 'Title', type_category AS 'Category', client_name AS 'Client',  status AS 'Status' , date_orderCompleted AS 'Date Completed', currency_id AS 'Currency', order_cost AS 'Value' , order_assignee AS 'Assignee'  FROM tb_orders WHERE is_complete = 1 ", mysqlConnection);
+      MySqlDataAdapter sqlADP = new MySqlDataAdapter(getQuery.query_buildExcelExportOrderList, mysqlConnection);
       //Create and fill a  Datatable.
       DataTable DTtable = new DataTable();
       sqlADP.Fill(DTtable);
@@ -241,7 +215,7 @@ namespace ZMS
       {
         GC.Collect();
       }
-    }
+    }*/
 
     public string GetLiveConversionToRand(decimal amount, string fromCurrency, string toCurrency)
     {

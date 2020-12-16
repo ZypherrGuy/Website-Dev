@@ -257,10 +257,6 @@
       // 
       this.comboBoxClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBoxClient.FormattingEnabled = true;
-      this.comboBoxClient.Items.AddRange(new object[] {
-            "Jack King",
-            "Jurk Ovlin",
-            "Baki Kaan"});
       this.comboBoxClient.Location = new System.Drawing.Point(156, 172);
       this.comboBoxClient.Name = "comboBoxClient";
       this.comboBoxClient.Size = new System.Drawing.Size(261, 24);
