@@ -17,7 +17,6 @@ C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.NewOrde
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\ZMS.exe.config
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\ZMS.exe
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\ZMS.pdb
-C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.csprojAssemblyReference.cache
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.FormMainMenu.resources
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Clients.resources
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.Dashboard.resources
@@ -35,7 +34,6 @@ C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.NewClie
 C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.NewInvoice.resources
 C:\Repos\Personal\GitHub\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.OrderHistory.resources
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.NewClient.resources
-C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.Forms.OrderHistory.resources
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\MySql.Data.dll
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\Google.Protobuf.dll
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\Zstandard.Net.dll
@@ -52,3 +50,17 @@ C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\D
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\MySql.Data.xml
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.exe.config
 C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.csproj.CopyComplete
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\Aspose.Cells.dll
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\ExcelEngine.dll
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\Aspose.Cells.xml
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\Newtonsoft.Json.xml
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\System.Security.AccessControl.dll
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\System.Security.Permissions.dll
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\System.Security.AccessControl.xml
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\System.Security.Permissions.xml
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\kdsga\Google Drive\LocalRepo\FAB site\Website-Dev\desktop-app\ZMS\obj\Debug\ZMS.csprojAssemblyReference.cache

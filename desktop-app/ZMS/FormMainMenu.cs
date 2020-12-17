@@ -15,12 +15,10 @@ namespace ZMS
 
     public partial class FormMainMenu : Form
     {
-        //Fields
         private Button currentButton;
         private Random random;
         private int tempIndex;
         private Form activeForm;
-
 
         public FormMainMenu()
         {
@@ -38,7 +36,6 @@ namespace ZMS
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        //Methods
         private Color SelectThemeColor()
         {
             int index = random.Next(ThemeColor.ColorList.Count);
@@ -185,11 +182,6 @@ namespace ZMS
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void FormMainMenu_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
