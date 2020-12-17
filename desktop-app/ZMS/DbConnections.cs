@@ -7,16 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace ZMS
 {
   class DbConnections
   {
-
     public string GetDBConnectionString()
     {
-        string connectionString = "SERVER=197.242.144.16;port=3306;DATABASE=royalxyb_ZypeManagementSystem;username=royalxyb_admin;password=doctorslater94;Convert Zero Datetime=True";
-        return connectionString;  
+      return ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString; ;  
     }
 
     public void OpenSuccessfulDBConnection(MySqlConnection mysqlConnection)
@@ -25,29 +24,11 @@ namespace ZMS
       mysqlConnection.Open();
     }
 
-    public void AddDataToGrid(DataGridView dataGridView , string dbQuery , MySqlConnection mysqlConnection)
+    public void FillDataGridView(DataGridView orderGrid , string query)
     {
-      MySqlCommand command = new MySqlCommand(dbQuery, mysqlConnection);
-      MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
-      dataAdapter.SelectCommand = command;
-      DataSet DS = new DataSet();
-      dataAdapter.Fill(DS);
-      dataGridView.DataSource = DS.Tables[0];
-    }
-
-
-    public void GetOrderList(DataGridView orderGrid)
-    {
-      /*
-           MySqlConnection conn = new MySqlConnection();
-           OpenSuccessfulDBConnection(conn);
-           //WHERE is_inprogress = 1
-           string db_GetOrders = "SELECT order_id, title, type, ClientID, deadline_date, editor_url, status  FROM tb_orders";
-           AddDataToGrid(orderGrid, db_GetOrders, conn);*/
-
       MySqlConnection mysqlConnection = new MySqlConnection(GetDBConnectionString());
       DataTable dt = new DataTable();
-      MySqlDataAdapter da = new MySqlDataAdapter("SELECT order_id, title, type, ClientID, deadline_date, editor_url, status  FROM tb_orders", mysqlConnection);
+      MySqlDataAdapter da = new MySqlDataAdapter(query, mysqlConnection);
 
       if (mysqlConnection.State == ConnectionState.Closed)
         mysqlConnection.Open();
@@ -56,9 +37,25 @@ namespace ZMS
       da.Fill(dt);
 
       orderGrid.DataSource = dt;
-
     }
-    
+
+
+    public void FillComboBox(ComboBox comboBox, string query, string dbColumnName)
+    {
+      using (MySqlConnection sqlConnection = new MySqlConnection(GetDBConnectionString()))
+      {
+        MySqlCommand sqlCmd = new MySqlCommand(query , sqlConnection);
+        sqlConnection.Open();
+        MySqlDataReader sqlReader = sqlCmd.ExecuteReader();
+
+        while (sqlReader.Read())
+        {
+          comboBox.Items.Add(sqlReader[dbColumnName].ToString() );
+        }
+
+        sqlReader.Close();
+      }
+    }
   }
 }
 

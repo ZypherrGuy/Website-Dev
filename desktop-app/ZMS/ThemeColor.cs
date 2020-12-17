@@ -42,7 +42,6 @@ namespace ZMS
         green = (255 - green) * correctionFactor + green;
         blue = (255 - blue) * correctionFactor + blue;
       }
-
       return Color.FromArgb(color.A, (byte)red, (byte)green, (byte)blue);
     }
   }

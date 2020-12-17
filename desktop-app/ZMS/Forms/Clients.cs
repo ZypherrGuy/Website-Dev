@@ -12,6 +12,10 @@ namespace ZMS.Forms
 {
   public partial class Clients : Form
   {
+    DbConnections connect = new DbConnections();
+    FormOperations action = new FormOperations();
+    QueryStorage getQuery = new QueryStorage();
+
     public Clients()
     {
       InitializeComponent();
@@ -21,6 +25,7 @@ namespace ZMS.Forms
     {
       LoadTheme();
       btnEditClient.Visible = false;
+      connect.FillDataGridView(dataGridClients, getQuery.query_getClientList);
     }
 
     private void LoadTheme()
@@ -35,8 +40,6 @@ namespace ZMS.Forms
           btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
         }
       }
-      //label1.ForeColor = ThemeColor.SecondaryColor;
-      //label2.ForeColor = ThemeColor.PrimaryColor;
     }
 
     private void btnNewClient_Click(object sender, EventArgs e)
@@ -45,9 +48,9 @@ namespace ZMS.Forms
       newClientForm.Show();
     }
 
-    private void comboBoxClientSort_SelectedIndexChanged(object sender, EventArgs e)
+    private void inputSearch_TextChanged(object sender, EventArgs e)
     {
-      
+        connect.FillDataGridView(dataGridClients, getQuery.query_getClientList + " WHERE client_id like '%" + inputSearch.Text + "%' OR client_name like '%" + inputSearch.Text + "%' OR clientRep_name like '%" + inputSearch.Text + "%'");
     }
   }
 }
