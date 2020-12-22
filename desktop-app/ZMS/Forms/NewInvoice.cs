@@ -104,7 +104,6 @@ namespace ZMS.Forms
     {
       lblOrderCountNumber.Text = dataGridCompletedOrderList.SelectedRows.Count.ToString();
       invoiceOrderValues.Clear();
-      //string query = "SELECT value FROM tb_orders WHERE ";
 
       foreach (DataGridViewRow row in dataGridCompletedOrderList.SelectedRows)
       {
@@ -127,8 +126,6 @@ namespace ZMS.Forms
       {
         MessageBox.Show(error.Message);
       }
-      
-
     }
   }
 }

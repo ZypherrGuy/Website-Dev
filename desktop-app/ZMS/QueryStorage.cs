@@ -40,9 +40,7 @@ namespace ZMS
     public string query_getAllInvoicesSearchbar = "SELECT i.invoice_id AS 'Invoice ID', i.invoice_paymentReference AS 'Reference', c.client_name AS 'Client', i.invoice_orderCount AS 'Order Items', m.currency_code AS 'Currency', i.invoice_totalCurrency AS 'Amount' , i.invoice_totalRands AS 'R. Conversion', i.invoice_date AS 'Date Created' FROM tb_invoices i INNER JOIN tb_client c on i.client_id = c.client_id INNER JOIN tb_currency m on i.currency_id = m.currency_id";
     public string query_getSelectedClientPendingInvoiceList = "SELECT o.order_id AS 'Order ID', o.title AS 'Title', c.client_name AS 'Client', o.status AS 'Status', m.currency_code AS 'Currency', o.order_cost AS 'Value'  FROM tb_orders o INNER JOIN tb_client c on o.client_id = c.client_id INNER JOIN tb_currency m on o.currency_id = m.currency_id WHERE is_invoiced = 0 AND is_complete = 1 AND client_name = '";
 
-
     //Other
     //public string query_buildExcelExportOrderList = "SELECT order_id AS 'Order ID', title AS 'Title', type_category AS 'Category', client_name AS 'Client',  status AS 'Status' , date_orderCompleted AS 'Date Completed', currency_id AS 'Currency', order_cost AS 'Value' , order_assignee AS 'Assignee'  FROM tb_orders WHERE is_complete = 1 ";
-
   }
 }
