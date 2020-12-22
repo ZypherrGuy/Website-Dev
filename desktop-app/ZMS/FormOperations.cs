@@ -36,7 +36,36 @@ namespace ZMS
       string id = GetCategoryCode(comboBox) + "-" + currentYear + "-" + category_rows_count++;
       return id;
     }
-       
+
+    public string GetCurrencyCodeFromClientName(ComboBox combobox)
+    {
+      using (MySqlConnection connection = new MySqlConnection(connect.GetDBConnectionString()))
+      using (MySqlCommand command = new MySqlCommand("SELECT m.currency_code FROM tb_currency m INNER JOIN tb_client c on m.currency_id = c.default_currency_id WHERE c.client_name = '" + combobox.SelectedItem.ToString() + "'", connection))
+      {
+        connection.Open();
+        using (MySqlDataReader reader = command.ExecuteReader())
+        {
+          reader.Read();
+          var currencyCode = reader["currency_code"].ToString();
+          return currencyCode;
+        }
+      }
+    }
+
+    public string GetDefaultOrderValueFromCategory(ComboBox combobox)
+    {
+      using (MySqlConnection connection = new MySqlConnection(connect.GetDBConnectionString()))
+      using (MySqlCommand command = new MySqlCommand("SELECT category_price FROM tb_pricelist WHERE category_description = '" + combobox.SelectedItem.ToString() + "'", connection))
+      {
+        connection.Open();
+        using (MySqlDataReader reader = command.ExecuteReader())
+        {
+          reader.Read();
+          var currencyCode = reader["category_price"].ToString();
+          return currencyCode;
+        }
+      }
+    }
 
     internal void CreateNewOrder(ComboBox orderType, TextBox orderTitle, DateTimePicker scheduleDate, DateTimePicker deadlineDate, TextBox editorURL, ComboBox category, ComboBox clientName, ComboBox currency, TextBox orderValue, ComboBox orderSize, ComboBox assignee)
     {

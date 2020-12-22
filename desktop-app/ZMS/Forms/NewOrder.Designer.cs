@@ -225,6 +225,7 @@
       this.comboBoxOrderType.Name = "comboBoxOrderType";
       this.comboBoxOrderType.Size = new System.Drawing.Size(261, 24);
       this.comboBoxOrderType.TabIndex = 20;
+      this.comboBoxOrderType.SelectedIndexChanged += new System.EventHandler(this.comboBoxOrderType_SelectedIndexChanged);
       // 
       // comboBoxClient
       // 
@@ -234,16 +235,12 @@
       this.comboBoxClient.Name = "comboBoxClient";
       this.comboBoxClient.Size = new System.Drawing.Size(261, 24);
       this.comboBoxClient.TabIndex = 22;
+      this.comboBoxClient.SelectedIndexChanged += new System.EventHandler(this.comboBoxClient_SelectedIndexChanged);
       // 
       // comboBoxCurrency
       // 
       this.comboBoxCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBoxCurrency.FormattingEnabled = true;
-      this.comboBoxCurrency.Items.AddRange(new object[] {
-            "GBP",
-            "ZAR",
-            "USD",
-            "AED"});
       this.comboBoxCurrency.Location = new System.Drawing.Point(598, 179);
       this.comboBoxCurrency.Name = "comboBoxCurrency";
       this.comboBoxCurrency.Size = new System.Drawing.Size(90, 24);

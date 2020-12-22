@@ -31,6 +31,7 @@ namespace ZMS.Forms
       connect.FillComboBox(comboBoxOrderType, getQuery.query_getAllCategoryList, "category_description");
       connect.FillComboBox(comboBoxClient, getQuery.query_getAllClientsList, "client_name");
       connect.FillComboBox(comboBoxAssignee, getQuery.query_getAllAssigneeList, "assignee_name");
+      connect.FillComboBox(comboBoxCurrency, getQuery.query_getAllCurrenciesList, "currency_code");
 
     }
 
@@ -61,6 +62,16 @@ namespace ZMS.Forms
     private void btnSubmitCreateOrder_Click(object sender, EventArgs e)
     {
       action.CreateNewOrder(comboBoxOrderType, inputOrderTitle, dateTimeSchedDate, dateTimeSubDate , inputEditorURL, comboBoxOrderType, comboBoxClient, comboBoxCurrency, inputOrderCost, comboBoxOrderSize, comboBoxAssignee );
+    }
+
+    private void comboBoxClient_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      comboBoxCurrency.SelectedItem = action.GetCurrencyCodeFromClientName(comboBoxClient);
+    }
+
+    private void comboBoxOrderType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      inputOrderCost.Text = action.GetDefaultOrderValueFromCategory(comboBoxOrderType);
     }
   }
 }

@@ -73,7 +73,6 @@ namespace ZMS.Forms
         {
           lblCurrencySymbol.Text = sqlReader["currency_symbol"].ToString();
           lblRandConversion.Text = action.GetLiveConversionToRand(Convert.ToInt32(lblCurrencyTotal.Text), comboBoxNewInvoiceCurrency.SelectedItem.ToString(), "ZAR");
-
         }
         sqlReader.Close();
       }
@@ -83,13 +82,13 @@ namespace ZMS.Forms
     {
       using (MySqlConnection sqlConnection = new MySqlConnection(connect.GetDBConnectionString()))
       {
-        MySqlCommand sqlCmd = new MySqlCommand("SELECT * FROM tb_client WHERE client_name = '" + comboBoxNewInvoiceClientSelect.SelectedItem + "'", sqlConnection);
+        MySqlCommand sqlCmd = new MySqlCommand("SELECT m.currency_code FROM tb_currency m INNER JOIN tb_client c ON m.currency_id = c.default_currency_id WHERE c.client_name = '" + comboBoxNewInvoiceClientSelect.SelectedItem + "'", sqlConnection);
         sqlConnection.Open();
         MySqlDataReader sqlReader = sqlCmd.ExecuteReader();
 
         while (sqlReader.Read())
         {
-          comboBoxNewInvoiceCurrency.Text = sqlReader["default_currency"].ToString();
+          comboBoxNewInvoiceCurrency.Text = sqlReader["currency_code"].ToString();
         }
         sqlReader.Close();
       }
@@ -97,7 +96,7 @@ namespace ZMS.Forms
 
     private void comboBoxNewInvoiceClientSelect_SelectedIndexChanged(object sender, EventArgs e)
     {
-      //connect.FillDataGridView(dataGridCompletedOrderList, getQuery.query_getSelectedClientPendingInvoiceList + "'" + comboBoxNewInvoiceClientSelect.SelectedItem + "'");
+      connect.FillDataGridView(dataGridCompletedOrderList, getQuery.query_getSelectedClientPendingInvoiceList + comboBoxNewInvoiceClientSelect.SelectedItem + "'");
       SetDefaultCurrency();
     }
 
