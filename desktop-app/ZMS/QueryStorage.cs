@@ -22,7 +22,7 @@ namespace ZMS
     public string query_getClientList = "SELECT client_id AS 'Client ID', client_name AS 'Client', industry AS 'Industry', client_addressCountry AS 'Country' ,clientRep_name AS 'Client Rep', clientRep_contactEmail AS 'Email Contact' FROM tb_client";
 
     //Orders - create
-    public string query_CreateNewOrder = "INSERT INTO tb_orders VALUES (@order_id,@title,@description,@scheduled_date,@deadline_date,@editor_url,@status,@is_complete,@is_invoiced,@is_closed,@category_id,@client_id,@invoice_id,@is_inprogress,@currency_id,@order_cost,@order_size,@order_dateCreated,@date_orderCompleted,@assignee_id,@created_by)";
+    public string query_CreateNewOrder = "INSERT INTO tb_orders VALUES (@order_id,@client_trackingId,@title,@description,@scheduled_date,@deadline_date,@editor_url,@status,@is_complete,@is_invoiced,@is_closed,@category_id,@client_id,@invoice_id,@is_inprogress,@currency_id,@order_cost,@order_size,@order_dateCreated,@date_orderCompleted,@assignee_id,@created_by)";
 
     //Orders - State selection
     public string query_getInprogressOrderList = "SELECT o.order_id AS 'Order ID', o.title AS 'Title', x.category_description AS 'Category', c.client_name AS 'Client', o.deadline_date AS 'Deadline', o.status AS 'Status' , m.currency_code AS 'Currency', o.order_cost AS 'Value' , a.assignee_name AS 'Assignee' FROM tb_orders o INNER JOIN tb_pricelist x on o.category_id = x.category_id INNER JOIN tb_client c on o.client_id = c.client_id INNER JOIN tb_currency m on o.currency_id = m.currency_id INNER JOIN tb_assignee a on o.assignee_id = a.assignee_id WHERE o.is_inprogress = 1 AND o.is_complete = 0";

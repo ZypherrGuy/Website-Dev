@@ -61,7 +61,7 @@ namespace ZMS.Forms
 
     private void btnSubmitCreateOrder_Click(object sender, EventArgs e)
     {
-      action.CreateNewOrder(comboBoxOrderType, inputOrderTitle, dateTimeSchedDate, dateTimeSubDate , inputEditorURL, comboBoxOrderType, comboBoxClient, comboBoxCurrency, inputOrderCost, comboBoxOrderSize, comboBoxAssignee );
+      action.CreateNewOrder(comboBoxOrderType, inputTrackingID ,inputOrderTitle, dateTimeSchedDate, dateTimeSubDate , inputEditorURL, comboBoxOrderType, comboBoxClient, comboBoxCurrency, inputOrderCost, comboBoxOrderSize, comboBoxAssignee , checkBoxNoDeadline);
     }
 
     private void comboBoxClient_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,6 +72,18 @@ namespace ZMS.Forms
     private void comboBoxOrderType_SelectedIndexChanged(object sender, EventArgs e)
     {
       inputOrderCost.Text = action.GetDefaultOrderValueFromCategory(comboBoxOrderType);
+    }
+
+    private void checkBoxNoDeadline_CheckedChanged(object sender, EventArgs e)
+    {
+      if(checkBoxNoDeadline.Checked == true)
+      {
+        dateTimeSubDate.Enabled = false;
+      }
+      else
+      {
+        dateTimeSubDate.Enabled = true;
+      }
     }
   }
 }
