@@ -51,6 +51,9 @@
       this.label2 = new System.Windows.Forms.Label();
       this.comboBoxOrderSize = new System.Windows.Forms.ComboBox();
       this.lblOrderSize = new System.Windows.Forms.Label();
+      this.lblTrackingID = new System.Windows.Forms.Label();
+      this.inputTrackingID = new System.Windows.Forms.TextBox();
+      this.checkBoxNoDeadline = new System.Windows.Forms.CheckBox();
       this.panelNewOrderTop.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -84,7 +87,7 @@
       this.btnSubmitCreateOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.btnSubmitCreateOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.btnSubmitCreateOrder.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-      this.btnSubmitCreateOrder.Location = new System.Drawing.Point(737, 467);
+      this.btnSubmitCreateOrder.Location = new System.Drawing.Point(737, 493);
       this.btnSubmitCreateOrder.Name = "btnSubmitCreateOrder";
       this.btnSubmitCreateOrder.Size = new System.Drawing.Size(122, 39);
       this.btnSubmitCreateOrder.TabIndex = 1;
@@ -98,7 +101,7 @@
       this.btnCancelCreateOrder.FlatAppearance.BorderSize = 0;
       this.btnCancelCreateOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.btnCancelCreateOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-      this.btnCancelCreateOrder.Location = new System.Drawing.Point(609, 467);
+      this.btnCancelCreateOrder.Location = new System.Drawing.Point(609, 493);
       this.btnCancelCreateOrder.Name = "btnCancelCreateOrder";
       this.btnCancelCreateOrder.Size = new System.Drawing.Size(122, 39);
       this.btnCancelCreateOrder.TabIndex = 2;
@@ -110,7 +113,7 @@
       // 
       this.lblOrderTitle.AutoSize = true;
       this.lblOrderTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblOrderTitle.Location = new System.Drawing.Point(13, 100);
+      this.lblOrderTitle.Location = new System.Drawing.Point(13, 103);
       this.lblOrderTitle.Name = "lblOrderTitle";
       this.lblOrderTitle.Size = new System.Drawing.Size(76, 17);
       this.lblOrderTitle.TabIndex = 3;
@@ -150,7 +153,7 @@
       // 
       this.lblOrderDeadline.AutoSize = true;
       this.lblOrderDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblOrderDeadline.Location = new System.Drawing.Point(13, 226);
+      this.lblOrderDeadline.Location = new System.Drawing.Point(13, 230);
       this.lblOrderDeadline.Name = "lblOrderDeadline";
       this.lblOrderDeadline.Size = new System.Drawing.Size(140, 17);
       this.lblOrderDeadline.TabIndex = 7;
@@ -159,7 +162,7 @@
       // dateTimeSubDate
       // 
       this.dateTimeSubDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.dateTimeSubDate.Location = new System.Drawing.Point(218, 221);
+      this.dateTimeSubDate.Location = new System.Drawing.Point(218, 225);
       this.dateTimeSubDate.Name = "dateTimeSubDate";
       this.dateTimeSubDate.Size = new System.Drawing.Size(641, 23);
       this.dateTimeSubDate.TabIndex = 8;
@@ -168,7 +171,7 @@
       // 
       this.lblScheduleOrder.AutoSize = true;
       this.lblScheduleOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblScheduleOrder.Location = new System.Drawing.Point(13, 269);
+      this.lblScheduleOrder.Location = new System.Drawing.Point(13, 298);
       this.lblScheduleOrder.Name = "lblScheduleOrder";
       this.lblScheduleOrder.Size = new System.Drawing.Size(108, 17);
       this.lblScheduleOrder.TabIndex = 10;
@@ -179,7 +182,7 @@
       this.inputOrderTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.inputOrderTitle.Location = new System.Drawing.Point(156, 100);
       this.inputOrderTitle.Name = "inputOrderTitle";
-      this.inputOrderTitle.Size = new System.Drawing.Size(703, 23);
+      this.inputOrderTitle.Size = new System.Drawing.Size(399, 23);
       this.inputOrderTitle.TabIndex = 11;
       // 
       // inputOrderCost
@@ -193,7 +196,7 @@
       // inputEditorURL
       // 
       this.inputEditorURL.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-      this.inputEditorURL.Location = new System.Drawing.Point(218, 350);
+      this.inputEditorURL.Location = new System.Drawing.Point(218, 376);
       this.inputEditorURL.Multiline = true;
       this.inputEditorURL.Name = "inputEditorURL";
       this.inputEditorURL.Size = new System.Drawing.Size(641, 59);
@@ -203,7 +206,7 @@
       // 
       this.label1.AutoSize = true;
       this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label1.Location = new System.Drawing.Point(13, 350);
+      this.label1.Location = new System.Drawing.Point(13, 376);
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(77, 17);
       this.label1.TabIndex = 17;
@@ -212,7 +215,7 @@
       // dateTimeSchedDate
       // 
       this.dateTimeSchedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.dateTimeSchedDate.Location = new System.Drawing.Point(218, 264);
+      this.dateTimeSchedDate.Location = new System.Drawing.Point(218, 293);
       this.dateTimeSchedDate.Name = "dateTimeSchedDate";
       this.dateTimeSchedDate.Size = new System.Drawing.Size(641, 23);
       this.dateTimeSchedDate.TabIndex = 19;
@@ -225,6 +228,7 @@
       this.comboBoxOrderType.Name = "comboBoxOrderType";
       this.comboBoxOrderType.Size = new System.Drawing.Size(261, 24);
       this.comboBoxOrderType.TabIndex = 20;
+      this.comboBoxOrderType.SelectedIndexChanged += new System.EventHandler(this.comboBoxOrderType_SelectedIndexChanged);
       // 
       // comboBoxClient
       // 
@@ -234,16 +238,12 @@
       this.comboBoxClient.Name = "comboBoxClient";
       this.comboBoxClient.Size = new System.Drawing.Size(261, 24);
       this.comboBoxClient.TabIndex = 22;
+      this.comboBoxClient.SelectedIndexChanged += new System.EventHandler(this.comboBoxClient_SelectedIndexChanged);
       // 
       // comboBoxCurrency
       // 
       this.comboBoxCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBoxCurrency.FormattingEnabled = true;
-      this.comboBoxCurrency.Items.AddRange(new object[] {
-            "GBP",
-            "ZAR",
-            "USD",
-            "AED"});
       this.comboBoxCurrency.Location = new System.Drawing.Point(598, 179);
       this.comboBoxCurrency.Name = "comboBoxCurrency";
       this.comboBoxCurrency.Size = new System.Drawing.Size(90, 24);
@@ -253,7 +253,7 @@
       // 
       this.comboBoxAssignee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.comboBoxAssignee.FormattingEnabled = true;
-      this.comboBoxAssignee.Location = new System.Drawing.Point(156, 428);
+      this.comboBoxAssignee.Location = new System.Drawing.Point(156, 454);
       this.comboBoxAssignee.Name = "comboBoxAssignee";
       this.comboBoxAssignee.Size = new System.Drawing.Size(703, 24);
       this.comboBoxAssignee.TabIndex = 25;
@@ -262,7 +262,7 @@
       // 
       this.label2.AutoSize = true;
       this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label2.Location = new System.Drawing.Point(13, 431);
+      this.label2.Location = new System.Drawing.Point(13, 457);
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(70, 17);
       this.label2.TabIndex = 24;
@@ -281,7 +281,7 @@
             "6",
             "7",
             "8"});
-      this.comboBoxOrderSize.Location = new System.Drawing.Point(694, 308);
+      this.comboBoxOrderSize.Location = new System.Drawing.Point(694, 334);
       this.comboBoxOrderSize.Name = "comboBoxOrderSize";
       this.comboBoxOrderSize.Size = new System.Drawing.Size(165, 24);
       this.comboBoxOrderSize.TabIndex = 27;
@@ -290,17 +290,51 @@
       // 
       this.lblOrderSize.AutoSize = true;
       this.lblOrderSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblOrderSize.Location = new System.Drawing.Point(595, 311);
+      this.lblOrderSize.Location = new System.Drawing.Point(595, 337);
       this.lblOrderSize.Name = "lblOrderSize";
       this.lblOrderSize.Size = new System.Drawing.Size(78, 17);
       this.lblOrderSize.TabIndex = 26;
       this.lblOrderSize.Text = "Order size:";
       // 
+      // lblTrackingID
+      // 
+      this.lblTrackingID.AutoSize = true;
+      this.lblTrackingID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblTrackingID.Location = new System.Drawing.Point(595, 103);
+      this.lblTrackingID.Name = "lblTrackingID";
+      this.lblTrackingID.Size = new System.Drawing.Size(84, 17);
+      this.lblTrackingID.TabIndex = 28;
+      this.lblTrackingID.Text = "Tracking ID:";
+      // 
+      // inputTrackingID
+      // 
+      this.inputTrackingID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.inputTrackingID.Location = new System.Drawing.Point(694, 100);
+      this.inputTrackingID.Name = "inputTrackingID";
+      this.inputTrackingID.Size = new System.Drawing.Size(165, 23);
+      this.inputTrackingID.TabIndex = 29;
+      // 
+      // checkBoxNoDeadline
+      // 
+      this.checkBoxNoDeadline.AutoSize = true;
+      this.checkBoxNoDeadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+      this.checkBoxNoDeadline.Location = new System.Drawing.Point(694, 255);
+      this.checkBoxNoDeadline.Margin = new System.Windows.Forms.Padding(4);
+      this.checkBoxNoDeadline.Name = "checkBoxNoDeadline";
+      this.checkBoxNoDeadline.Size = new System.Drawing.Size(166, 21);
+      this.checkBoxNoDeadline.TabIndex = 30;
+      this.checkBoxNoDeadline.Text = "Deadline not provided";
+      this.checkBoxNoDeadline.UseVisualStyleBackColor = true;
+      this.checkBoxNoDeadline.CheckedChanged += new System.EventHandler(this.checkBoxNoDeadline_CheckedChanged);
+      // 
       // NewOrder
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(871, 518);
+      this.ClientSize = new System.Drawing.Size(871, 544);
+      this.Controls.Add(this.checkBoxNoDeadline);
+      this.Controls.Add(this.inputTrackingID);
+      this.Controls.Add(this.lblTrackingID);
       this.Controls.Add(this.comboBoxOrderSize);
       this.Controls.Add(this.lblOrderSize);
       this.Controls.Add(this.comboBoxAssignee);
@@ -359,5 +393,8 @@
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.ComboBox comboBoxOrderSize;
     private System.Windows.Forms.Label lblOrderSize;
+    private System.Windows.Forms.Label lblTrackingID;
+    private System.Windows.Forms.TextBox inputTrackingID;
+    private System.Windows.Forms.CheckBox checkBoxNoDeadline;
   }
 }

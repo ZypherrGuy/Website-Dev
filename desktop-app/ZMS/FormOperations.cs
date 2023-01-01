@@ -36,21 +36,59 @@ namespace ZMS
       string id = GetCategoryCode(comboBox) + "-" + currentYear + "-" + category_rows_count++;
       return id;
     }
-       
 
-    internal void CreateNewOrder(ComboBox orderType, TextBox orderTitle, DateTimePicker scheduleDate, DateTimePicker deadlineDate, TextBox editorURL, ComboBox category, ComboBox clientName, ComboBox currency, TextBox orderValue, ComboBox orderSize, ComboBox assignee)
+    public string GetCurrencyCodeFromClientName(ComboBox combobox)
+    {
+      using (MySqlConnection connection = new MySqlConnection(connect.GetDBConnectionString()))
+      using (MySqlCommand command = new MySqlCommand("SELECT m.currency_code FROM tb_currency m INNER JOIN tb_client c on m.currency_id = c.default_currency_id WHERE c.client_name = '" + combobox.SelectedItem.ToString() + "'", connection))
+      {
+        connection.Open();
+        using (MySqlDataReader reader = command.ExecuteReader())
+        {
+          reader.Read();
+          var currencyCode = reader["currency_code"].ToString();
+          return currencyCode;
+        }
+      }
+    }
+
+    public string GetDefaultOrderValueFromCategory(ComboBox combobox)
+    {
+      using (MySqlConnection connection = new MySqlConnection(connect.GetDBConnectionString()))
+      using (MySqlCommand command = new MySqlCommand("SELECT category_price FROM tb_pricelist WHERE category_description = '" + combobox.SelectedItem.ToString() + "'", connection))
+      {
+        connection.Open();
+        using (MySqlDataReader reader = command.ExecuteReader())
+        {
+          reader.Read();
+          var currencyCode = reader["category_price"].ToString();
+          return currencyCode;
+        }
+      }
+    }
+
+    internal void CreateNewOrder(ComboBox orderType, TextBox clientTrackingID, TextBox orderTitle, DateTimePicker scheduleDate, DateTimePicker deadlineDate, TextBox editorURL, ComboBox category, ComboBox clientName, ComboBox currency, TextBox orderValue, ComboBox orderSize, ComboBox assignee , CheckBox noDeadline)
     {
       try
       {
+        DateTime deadline = DateTime.MinValue;
+        if (noDeadline.Checked == false)
+        {
+          deadline = deadlineDate.Value.Date;
+        }
+
         MySqlConnection mysqlConnection = new MySqlConnection();
         connect.OpenSuccessfulDBConnection(mysqlConnection);
 
+
+
         MySqlCommand cmd = new MySqlCommand(getQuery.query_CreateNewOrder, mysqlConnection);
         cmd.Parameters.AddWithValue("@order_id", GetOrderID(orderType));
+        cmd.Parameters.AddWithValue("@client_trackingId", Convert.ToInt32(clientTrackingID.Text));
         cmd.Parameters.AddWithValue("@title", orderTitle.Text);
-        cmd.Parameters.AddWithValue("@description", "Basic Order");
+        cmd.Parameters.AddWithValue("@description", clientTrackingID.Text + " - " + category.SelectedItem + " - " + orderTitle.Text);
         cmd.Parameters.AddWithValue("@scheduled_date", scheduleDate.Value.Date);
-        cmd.Parameters.AddWithValue("@deadline_date", deadlineDate.Value.Date);
+        cmd.Parameters.AddWithValue("@deadline_date", deadline);
         cmd.Parameters.AddWithValue("@editor_url", editorURL.Text);
         cmd.Parameters.AddWithValue("@status", "In-progress");
         cmd.Parameters.AddWithValue("@is_complete", 0);
